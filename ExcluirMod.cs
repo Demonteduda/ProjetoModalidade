@@ -21,6 +21,7 @@ namespace aula13_banco
         {
             Modalidade mod = new Modalidade();
             mod.excluirModalidade(comboBox1.Text);
+            //boa sorte
 
         }
     }
