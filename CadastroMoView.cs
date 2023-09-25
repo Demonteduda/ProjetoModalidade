@@ -15,7 +15,7 @@ namespace aula13_banco
         int opc;
         public CadastroMoView()
         {
-           
+            InitializeComponent();
         }
 
         private void txtDesc_TextChanged(object sender, EventArgs e)
@@ -25,17 +25,18 @@ namespace aula13_banco
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            Modalidade moda = new Modalidade(txtDesc.Text, txtPreco.Text, txtQtdAluno.Text, txtQtdeAulas.Text);
+            Modalidade moda = new Modalidade(txtDesc.Text, float.Parse(txtPreco.Text), int.Parse(txtQtdAluno.Text), int.Parse(txtQtdeAulas.Text));
+            
 
-            if(opc==1)
+            if(true || opc==1)
             {
-                if (moda.cadastrarModalidade)
+                if (moda.cadastrarModalidade())
                 {
-
+                    MessageBox.Show("Cadastrado com sucesso!");
                 }
                 else
                 {
-
+                    MessageBox.Show("Erro ao cadastar!");
                 }
             }
             else

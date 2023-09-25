@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace aula13_banco
 {
@@ -15,10 +16,10 @@ namespace aula13_banco
 
         public Modalidade(string descricao, float preco, int qtd_alunos, int qtd_aulas)
         {
-            setDescricao(descricao);
-            setPreco(preco);
-            setQtd_alunos(qtd_alunos);
-            setQtd_aulas(qtd_aulas);
+            this.descricao = descricao;
+            this.preco = preco;
+            this.qtd_alunos = qtd_alunos;
+            this.qtd_aulas = qtd_aulas;
         }
 
         public Modalidade(string desc)
@@ -34,17 +35,19 @@ namespace aula13_banco
         public bool cadastrarModalidade()
         {
             bool cadastrar = false;
-            try { 
-            Console.WriteLine("inset into Estudio_modalidade( descricaoModalidade,precoModalidades, qtdAlunos, qtdAulas) values " +
+            try {
+                DAO_Conexao.con.Open();
+
+            Console.WriteLine("insert into Estudio_modalidade( descricaoModalidade,precoModalidades, qtdAlunos, qtdAulas) values " +
                "('" + descricao + "','" + preco + "','" + qtd_alunos + "','" + qtd_aulas + "')");
-                MySqlCommand insere = new MySqlCommand("inset into Estudio_modalidade( descricaoModalidade,precoModalidades, qtdAlunos, qtdAulas) values " +
+                MySqlCommand insere = new MySqlCommand("insert into Estudio_modalidade (descricaoModalidade, precoModalidades, qtdAlunos, qtdAulas) values " +
                "('" + descricao + "','" + preco + "','" + qtd_alunos + "','" + qtd_aulas + "')");
                 insere.ExecuteNonQuery();
                 cadastrar = true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                MessageBox.Show(ex.ToString());
             }
             finally
             {

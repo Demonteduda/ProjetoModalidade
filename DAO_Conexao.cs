@@ -9,7 +9,7 @@ namespace aula13_banco
 {
     class DAO_Conexao
     {
-        public static MySqlConnection con; 
+        public static MySqlConnection con { get; set; }
 
         public static Boolean getConexao(String local, String banco, string user, String senha)
         {
