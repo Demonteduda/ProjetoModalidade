@@ -97,9 +97,9 @@ namespace aula13_banco
 
         private void excluirModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ExcluirMod formCad = new ExcluirMod();
-            formCad.MdiParent = this;
-            formCad.Show();
+            Form5 formExc = new Form5();
+            formExc.MdiParent = this;
+            formExc.Show();
         }
     }
 }

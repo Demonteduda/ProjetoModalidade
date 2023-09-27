@@ -11,23 +11,27 @@ namespace aula13_banco
     class Modalidade
     {
         private string descricao;
-        private float preco;
+        private decimal preco;
         private int qtd_alunos, qtd_aulas;
+    
 
-        public Modalidade(string descricao, float preco, int qtd_alunos, int qtd_aulas)
-        {
+        public Modalidade( string descricao, decimal preco, int qtd_alunos, int qtd_aulas )
+        {  
             this.descricao = descricao;
             this.preco = preco;
             this.qtd_alunos = qtd_alunos;
             this.qtd_aulas = qtd_aulas;
+         
         }
 
-        public Modalidade(string desc)
+        public Modalidade (string desc)
         {
-
+            this.descricao = desc;
         }
 
-        public Modalidade() {
+      
+        public Modalidade()
+        {
 
             }
 
@@ -41,7 +45,7 @@ namespace aula13_banco
             Console.WriteLine("insert into Estudio_modalidade( descricaoModalidade,precoModalidades, qtdAlunos, qtdAulas) values " +
                "('" + descricao + "','" + preco + "','" + qtd_alunos + "','" + qtd_aulas + "')");
                 MySqlCommand insere = new MySqlCommand("insert into Estudio_modalidade (descricaoModalidade, precoModalidades, qtdAlunos, qtdAulas) values " +
-               "('" + descricao + "','" + preco + "','" + qtd_alunos + "','" + qtd_aulas + "')");
+               "('" + descricao + "','" + preco + "','" + qtd_alunos + "','" + qtd_aulas + "')", DAO_Conexao.con);
                 insere.ExecuteNonQuery();
                 cadastrar = true;
             }
@@ -76,10 +80,35 @@ namespace aula13_banco
                 Console.WriteLine(ex.ToString());
             }
           
+
             return consul;
         }
         
-           
+           public bool atualizarModalidade( string desc1, decimal preco1, int qtd_alunos1, int qtd_aulas1)
+        {
+            bool atu = false;
+
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand atualizar = new MySqlCommand("inset into Estudio_modalidade where descricaoModalidade = "+desc1+" ( " +
+                    "precoModalidades, qtdAlunos, qtdAulas) values " +
+               "('" + preco1 + "','" + qtd_alunos1 + "','" + qtd_aulas1 + "')");
+                atualizar.ExecuteNonQuery();
+                atu = true;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return atu;
+
+
+        }
 
         public MySqlDataReader consultarTodasModalid()
         {
@@ -102,38 +131,15 @@ namespace aula13_banco
 
             return consul;
         }
-        public bool atualizarModalidade()
-        {
-            bool atu = false;
-
-            try
-            {
-                DAO_Conexao.con.Open();
-                MySqlCommand atualizar = new MySqlCommand("inset into Estudio_modalidade( descricaoModalidade,precoModalidades, qtdAlunos, qtdAulas) values " +
-               "('" + descricao + "','" + preco + "','" + qtd_alunos + "','" + qtd_aulas + "')");
-                atualizar.ExecuteNonQuery();
-                atu = true;
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            finally
-            {
-                DAO_Conexao.con.Close();
-            }
-            return atu;
-
-
-        }
-        public bool excluirModalidade(string desc)
+        
+        public bool excluirModalidade()
         {
             bool exc = false;
             try
             {
                 DAO_Conexao.con.Open();
                 MySqlCommand exclui = new MySqlCommand("update Estudio_Modalidae set atival = 1 WHERE" +
-                    " descricaoModalidade = '"+desc+"'" , DAO_Conexao.con);
+                    " descricaoModalidade = '"+descricao+"'" , DAO_Conexao.con);
                 exclui.ExecuteNonQuery();
                 exc = true;
             }
@@ -151,7 +157,7 @@ namespace aula13_banco
         
 
         public string Descricao { get => descricao; set => descricao = value; }
-        public float Preco { get => preco; set => preco = value; }
+        public decimal Preco { get => preco; set => preco = value; }
         public int Qtd_aulas { get => qtd_aulas; set => qtd_aulas = value; }
         public int Qtd_alunos { get => qtd_alunos; set => qtd_alunos = value; }
 

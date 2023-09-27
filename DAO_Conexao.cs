@@ -13,7 +13,7 @@ namespace aula13_banco
 
         public static Boolean getConexao(String local, String banco, string user, String senha)
         {
-            Boolean retorno = false; 
+            Boolean retorno = false;
             try
             {
                 con = new MySqlConnection("server=" + local + ";User ID=" + user + ";" + "database=" + banco + "; password=" + senha + "; SslMode = none");
@@ -28,19 +28,22 @@ namespace aula13_banco
             return retorno;
         }
 
-        public static Boolean CadLogin(string usuario, string senha, int tipo) {
+        public static Boolean CadLogin(string usuario, string senha, int tipo)
+        {
             bool cad = false;
-            try {
+            try
+            {
                 con.Open();
                 MySqlCommand insere = new MySqlCommand("insert into Estudio_Login (usuario,senha,tipo)" + "values('" + usuario + "','" + senha + "'," + tipo + ")", con);
                 insere.ExecuteNonQuery();
-                cad = true; 
+                cad = true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
-            finally {
+            finally
+            {
                 con.Close();
             }
             return cad;
@@ -51,9 +54,10 @@ namespace aula13_banco
             try
             {
                 con.Open();
-                MySqlCommand seleciona = new MySqlCommand("select * from Estudio_Login where usuario='"+ usuario +"' and senha='" + senha + "'", con);
+                MySqlCommand seleciona = new MySqlCommand("select * from Estudio_Login where usuario='" + usuario + "' and senha='" + senha + "'", con);
                 MySqlDataReader result = seleciona.ExecuteReader();
-                if (result.Read()) {
+                if (result.Read())
+                {
                     tipo = Convert.ToInt32(result["tipo"].ToString());
                 }
             }

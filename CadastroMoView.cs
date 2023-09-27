@@ -12,7 +12,7 @@ namespace aula13_banco
 {
     public partial class CadastroMoView : Form
     {
-        int opc;
+       
         public CadastroMoView()
         {
             InitializeComponent();
@@ -25,11 +25,8 @@ namespace aula13_banco
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            Modalidade moda = new Modalidade(txtDesc.Text, float.Parse(txtPreco.Text), int.Parse(txtQtdAluno.Text), int.Parse(txtQtdeAulas.Text));
-            
-
-            if(true || opc==1)
-            {
+            Modalidade moda = new Modalidade( txtDesc.Text, decimal.Parse(txtPreco.Text), int.Parse(txtQtdAluno.Text), int.Parse(txtQtdeAulas.Text));
+           
                 if (moda.cadastrarModalidade())
                 {
                     MessageBox.Show("Cadastrado com sucesso!");
@@ -38,11 +35,8 @@ namespace aula13_banco
                 {
                     MessageBox.Show("Erro ao cadastar!");
                 }
-            }
-            else
-            {
-
-            }
+            
+           
         }
     }
 }

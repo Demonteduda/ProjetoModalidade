@@ -30,6 +30,7 @@ namespace aula13_banco
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtDesc = new System.Windows.Forms.TextBox();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.txtQtdeAulas = new System.Windows.Forms.TextBox();
             this.txtQtdAluno = new System.Windows.Forms.TextBox();
@@ -38,12 +39,15 @@ namespace aula13_banco
             this.lblQtdAlu = new System.Windows.Forms.Label();
             this.lblPreco = new System.Windows.Forms.Label();
             this.lblDescricao = new System.Windows.Forms.Label();
-            this.txtDesc = new System.Windows.Forms.TextBox();
+            this.lblId = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtId);
+            this.groupBox1.Controls.Add(this.lblId);
             this.groupBox1.Controls.Add(this.txtDesc);
             this.groupBox1.Controls.Add(this.btnCadastrar);
             this.groupBox1.Controls.Add(this.txtQtdeAulas);
@@ -60,9 +64,17 @@ namespace aula13_banco
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Modalidades";
             // 
+            // txtDesc
+            // 
+            this.txtDesc.Location = new System.Drawing.Point(150, 64);
+            this.txtDesc.Name = "txtDesc";
+            this.txtDesc.Size = new System.Drawing.Size(270, 20);
+            this.txtDesc.TabIndex = 9;
+            this.txtDesc.TextChanged += new System.EventHandler(this.txtDesc_TextChanged);
+            // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(195, 254);
+            this.btnCadastrar.Location = new System.Drawing.Point(191, 276);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(195, 44);
             this.btnCadastrar.TabIndex = 8;
@@ -72,21 +84,21 @@ namespace aula13_banco
             // 
             // txtQtdeAulas
             // 
-            this.txtQtdeAulas.Location = new System.Drawing.Point(152, 200);
+            this.txtQtdeAulas.Location = new System.Drawing.Point(150, 206);
             this.txtQtdeAulas.Name = "txtQtdeAulas";
             this.txtQtdeAulas.Size = new System.Drawing.Size(270, 20);
             this.txtQtdeAulas.TabIndex = 7;
             // 
             // txtQtdAluno
             // 
-            this.txtQtdAluno.Location = new System.Drawing.Point(152, 145);
+            this.txtQtdAluno.Location = new System.Drawing.Point(150, 151);
             this.txtQtdAluno.Name = "txtQtdAluno";
             this.txtQtdAluno.Size = new System.Drawing.Size(270, 20);
             this.txtQtdAluno.TabIndex = 6;
             // 
             // txtPreco
             // 
-            this.txtPreco.Location = new System.Drawing.Point(152, 103);
+            this.txtPreco.Location = new System.Drawing.Point(150, 109);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(270, 20);
             this.txtPreco.TabIndex = 5;
@@ -94,7 +106,7 @@ namespace aula13_banco
             // lblQtdAulas
             // 
             this.lblQtdAulas.AutoSize = true;
-            this.lblQtdAulas.Location = new System.Drawing.Point(62, 200);
+            this.lblQtdAulas.Location = new System.Drawing.Point(60, 206);
             this.lblQtdAulas.Name = "lblQtdAulas";
             this.lblQtdAulas.Size = new System.Drawing.Size(77, 13);
             this.lblQtdAulas.TabIndex = 3;
@@ -103,7 +115,7 @@ namespace aula13_banco
             // lblQtdAlu
             // 
             this.lblQtdAlu.AutoSize = true;
-            this.lblQtdAlu.Location = new System.Drawing.Point(62, 145);
+            this.lblQtdAlu.Location = new System.Drawing.Point(60, 151);
             this.lblQtdAlu.Name = "lblQtdAlu";
             this.lblQtdAlu.Size = new System.Drawing.Size(83, 13);
             this.lblQtdAlu.TabIndex = 2;
@@ -112,7 +124,7 @@ namespace aula13_banco
             // lblPreco
             // 
             this.lblPreco.AutoSize = true;
-            this.lblPreco.Location = new System.Drawing.Point(62, 103);
+            this.lblPreco.Location = new System.Drawing.Point(60, 109);
             this.lblPreco.Name = "lblPreco";
             this.lblPreco.Size = new System.Drawing.Size(38, 13);
             this.lblPreco.TabIndex = 1;
@@ -121,19 +133,27 @@ namespace aula13_banco
             // lblDescricao
             // 
             this.lblDescricao.AutoSize = true;
-            this.lblDescricao.Location = new System.Drawing.Point(62, 58);
+            this.lblDescricao.Location = new System.Drawing.Point(60, 64);
             this.lblDescricao.Name = "lblDescricao";
             this.lblDescricao.Size = new System.Drawing.Size(58, 13);
             this.lblDescricao.TabIndex = 0;
             this.lblDescricao.Text = "Descrição:";
             // 
-            // txtDesc
+            // lblId
             // 
-            this.txtDesc.Location = new System.Drawing.Point(152, 58);
-            this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(270, 20);
-            this.txtDesc.TabIndex = 9;
-            this.txtDesc.TextChanged += new System.EventHandler(this.txtDesc_TextChanged);
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(60, 31);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(91, 13);
+            this.lblId.TabIndex = 10;
+            this.lblId.Text = "Id da modalidade:";
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(150, 28);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(270, 20);
+            this.txtId.TabIndex = 11;
             // 
             // CadastroMoView
             // 
@@ -161,5 +181,7 @@ namespace aula13_banco
         private System.Windows.Forms.Label lblPreco;
         private System.Windows.Forms.Label lblDescricao;
         private System.Windows.Forms.TextBox txtDesc;
+        private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.TextBox txtId;
     }
 }
