@@ -26,7 +26,7 @@ namespace aula13_banco
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             Modalidade moda = new Modalidade( txtDesc.Text, decimal.Parse(txtPreco.Text), int.Parse(txtQtdAluno.Text), int.Parse(txtQtdeAulas.Text));
-           
+           //cadastro
                 if (moda.cadastrarModalidade())
                 {
                     MessageBox.Show("Cadastrado com sucesso!");
