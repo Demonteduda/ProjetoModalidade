@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,17 @@ namespace aula13_banco
         public Form7(int opcao)
         {
             InitializeComponent();
+
+            WindowState = FormWindowState.Maximized;
+            this.opc = opc;
+
+            Modalidade cad = new Modalidade();
+            MySqlDataReader r = cad.consultarModalidade();
+            while (r.Read())
+                cmbDesc.Items.Add(r["descricaoModalidade"].ToString());
+            DAO_Conexao.con.Close();
+
+
             if (opcao == 1)
             {
                 btnConsAtu.Text = "Atualizar";
@@ -29,7 +41,7 @@ namespace aula13_banco
 
         private void btnConsAtu_Click(object sender, EventArgs e)
         {
-                 Modalidade mod = new Modalidade();
+            Modalidade mod = new Modalidade();
             if (opc == 1)
             {
 
@@ -46,6 +58,7 @@ namespace aula13_banco
             {
 
                 mod.consultarModalidade();
+
             }
 
 
@@ -92,6 +105,11 @@ namespace aula13_banco
         }
 
         private void lblDesc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form7_Load(object sender, EventArgs e)
         {
 
         }

@@ -42,9 +42,9 @@ namespace aula13_banco
             try {
                 DAO_Conexao.con.Open();
 
-            Console.WriteLine("insert into Estudio_modalidade( descricaoModalidade,precoModalidades, qtdAlunos, qtdAulas) values " +
+            Console.WriteLine("insert into Estudio_modalidade( descricaoModalidade,precoModalidade, qtdAlunos, qtdAulas) values " +
                "('" + descricao + "','" + preco + "','" + qtd_alunos + "','" + qtd_aulas + "')");
-                MySqlCommand insere = new MySqlCommand("insert into Estudio_modalidade (descricaoModalidade, precoModalidades, qtdAlunos, qtdAulas) values " +
+                MySqlCommand insere = new MySqlCommand("insert into Estudio_modalidade (descricaoModalidade, precoModalidade, qtdAlunos, qtdAulas) values " +
                "('" + descricao + "','" + preco + "','" + qtd_alunos + "','" + qtd_aulas + "')", DAO_Conexao.con);
                 insere.ExecuteNonQuery();
                 cadastrar = true;
@@ -91,7 +91,8 @@ namespace aula13_banco
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand atualizar = new MySqlCommand("inset into Estudio_modalidade where descricaoModalidade = "+desc1+" ( " +
+                Console.WriteLine("Abriu -------------------------");
+                MySqlCommand atualizar = new MySqlCommand("Update Estudio_modalidade where descricaoModalidade = "+desc1+" ( " +
                     "precoModalidades, qtdAlunos, qtdAulas) values " +
                "('" + preco1 + "','" + qtd_alunos1 + "','" + qtd_aulas1 + "')");
                 atualizar.ExecuteNonQuery();

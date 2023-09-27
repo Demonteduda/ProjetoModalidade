@@ -30,6 +30,9 @@ namespace aula13_banco
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtQtdeAulas = new System.Windows.Forms.TextBox();
             this.txtQtdAlunos = new System.Windows.Forms.TextBox();
             this.txtPreco = new System.Windows.Forms.TextBox();
@@ -39,9 +42,6 @@ namespace aula13_banco
             this.lbQttdAluno = new System.Windows.Forms.Label();
             this.lblPreco = new System.Windows.Forms.Label();
             this.lblDesc = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +66,31 @@ namespace aula13_banco
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Modalidades";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(172, 230);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(260, 20);
+            this.txtId.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(41, 233);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(125, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Descrição para Atualizar:";
+            // 
+            // label1
+            // 
+            this.label1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(44, 233);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 9;
             // 
             // txtQtdeAulas
             // 
@@ -150,31 +175,6 @@ namespace aula13_banco
             this.lblDesc.Text = "Descrição:";
             this.lblDesc.Click += new System.EventHandler(this.lblDesc_Click);
             // 
-            // label1
-            // 
-            this.label1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 233);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
-            this.label1.TabIndex = 9;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 233);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Id para Atualizar:";
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(131, 230);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(301, 20);
-            this.txtId.TabIndex = 11;
-            // 
             // Form7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,6 +183,7 @@ namespace aula13_banco
             this.Controls.Add(this.groupBox1);
             this.Name = "Form7";
             this.Text = "Form7";
+            this.Load += new System.EventHandler(this.Form7_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
