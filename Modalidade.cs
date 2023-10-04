@@ -33,7 +33,7 @@ namespace aula13_banco
         public Modalidade()
         {
 
-            }
+         }
 
 
         public bool cadastrarModalidade()
@@ -111,19 +111,14 @@ namespace aula13_banco
 
         }
 
-        public MySqlDataReader consultarTodasModalid()
+        public MySqlDataReader consultarTodasModalide()
         {
             MySqlDataReader consul = null;
-
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudo_Modalidade", DAO_Conexao.con);
-                MySqlDataReader resultado = consulta.ExecuteReader();
-                if (resultado.Read())
-                {
-                    consul = consulta.ExecuteReader();
-                }
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudio_modalidade", DAO_Conexao.con);
+                consul = consulta.ExecuteReader();
             }
             catch (Exception ex)
             {

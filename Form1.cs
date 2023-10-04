@@ -101,5 +101,12 @@ namespace aula13_banco
             formExc.MdiParent = this;
             formExc.Show();
         }
+
+        private void cadastrarTurmaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cadTurma formcadt = new cadTurma();
+            formcadt.MdiParent = this;
+            formcadt.Show();
+        }
     }
 }

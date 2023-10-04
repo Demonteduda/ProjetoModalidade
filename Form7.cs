@@ -20,13 +20,13 @@ namespace aula13_banco
 
             WindowState = FormWindowState.Maximized;
             this.opc = opc;
-
             Modalidade cad = new Modalidade();
-            MySqlDataReader r = cad.consultarModalidade();
+            MySqlDataReader r = cad.consultarTodasModalide();
             while (r.Read())
+            {
                 cmbDesc.Items.Add(r["descricaoModalidade"].ToString());
+            }
             DAO_Conexao.con.Close();
-
 
             if (opcao == 1)
             {
@@ -41,11 +41,12 @@ namespace aula13_banco
 
         private void btnConsAtu_Click(object sender, EventArgs e)
         {
+            
             Modalidade mod = new Modalidade();
             if (opc == 1)
             {
 
-                if (mod.atualizarModalidade ( cmbDesc.Text, decimal.Parse(txtPreco.Text), int.Parse(txtQtdAlunos.Text), int.Parse(txtQtdeAulas.Text)))
+                if (mod.atualizarModalidade(cmbDesc.Text, decimal.Parse(txtPreco.Text), int.Parse(txtQtdAlunos.Text), int.Parse(txtQtdeAulas.Text)))
                 {
                     MessageBox.Show("Atualizado com sucesso!");
                 }
@@ -56,11 +57,16 @@ namespace aula13_banco
             }
             else
             {
+                Modalidade m = new Modalidade();
+                mod.consultarTodasModalide();
+                MySqlDataReader re = mod.consultarTodasModalide();
 
-                mod.consultarModalidade();
-
+                txtPreco.Text = re["precoModalidade"].ToString();
+                txtQtdAlunos.Text = re["qtdAlunos"].ToString();
+                txtQtdeAulas.Text = re["qtdAulas"].ToString();
             }
 
+            DAO_Conexao.con.Close();
 
         }
 
