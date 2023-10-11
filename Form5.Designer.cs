@@ -30,16 +30,16 @@ namespace aula13_banco
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnExluir = new System.Windows.Forms.Button();
-            this.txtExc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnExluir = new System.Windows.Forms.Button();
+            this.cmb2Desc = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmb2Desc);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtExc);
             this.groupBox1.Controls.Add(this.btnExluir);
             this.groupBox1.Location = new System.Drawing.Point(161, 74);
             this.groupBox1.Name = "groupBox1";
@@ -48,6 +48,15 @@ namespace aula13_banco
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Excluir Modalidade";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Descrição:";
             // 
             // btnExluir
             // 
@@ -59,21 +68,13 @@ namespace aula13_banco
             this.btnExluir.UseVisualStyleBackColor = true;
             this.btnExluir.Click += new System.EventHandler(this.btnExluir_Click);
             // 
-            // txtExc
+            // cmb2Desc
             // 
-            this.txtExc.Location = new System.Drawing.Point(89, 68);
-            this.txtExc.Name = "txtExc";
-            this.txtExc.Size = new System.Drawing.Size(268, 20);
-            this.txtExc.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 71);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Descrição:";
+            this.cmb2Desc.FormattingEnabled = true;
+            this.cmb2Desc.Location = new System.Drawing.Point(103, 68);
+            this.cmb2Desc.Name = "cmb2Desc";
+            this.cmb2Desc.Size = new System.Drawing.Size(121, 21);
+            this.cmb2Desc.TabIndex = 4;
             // 
             // Form5
             // 
@@ -93,7 +94,7 @@ namespace aula13_banco
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnExluir;
-        private System.Windows.Forms.TextBox txtExc;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmb2Desc;
     }
 }

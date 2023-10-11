@@ -267,7 +267,7 @@ namespace aula13_banco
 
         private void setComplemento(string complementp)
         {
-            this.complemento = complemento;
+           complemento = this.complemento;
         }
 
         private string getComplemento()

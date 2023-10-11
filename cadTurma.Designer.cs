@@ -30,24 +30,24 @@ namespace aula13_banco
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblModalidade = new System.Windows.Forms.Label();
-            this.lblProfessor = new System.Windows.Forms.Label();
-            this.lblDiaDaSemana = new System.Windows.Forms.Label();
-            this.lblHora = new System.Windows.Forms.Label();
-            this.btnCadastrar = new System.Windows.Forms.Button();
-            this.txtModalidade = new System.Windows.Forms.TextBox();
-            this.txtProfessor = new System.Windows.Forms.TextBox();
             this.txtDiaDaSemana = new System.Windows.Forms.TextBox();
-            this.txtHora = new System.Windows.Forms.TextBox();
+            this.txtProfessor = new System.Windows.Forms.TextBox();
+            this.txtModalidade = new System.Windows.Forms.TextBox();
+            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.lblHora = new System.Windows.Forms.Label();
+            this.lblDiaDaSemana = new System.Windows.Forms.Label();
+            this.lblProfessor = new System.Windows.Forms.Label();
+            this.lblModalidade = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Modalidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mskdtxtHora = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtHora);
+            this.groupBox1.Controls.Add(this.mskdtxtHora);
             this.groupBox1.Controls.Add(this.txtDiaDaSemana);
             this.groupBox1.Controls.Add(this.txtProfessor);
             this.groupBox1.Controls.Add(this.txtModalidade);
@@ -63,32 +63,36 @@ namespace aula13_banco
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Turma";
             // 
-            // lblModalidade
+            // txtDiaDaSemana
             // 
-            this.lblModalidade.AutoSize = true;
-            this.lblModalidade.Location = new System.Drawing.Point(61, 61);
-            this.lblModalidade.Name = "lblModalidade";
-            this.lblModalidade.Size = new System.Drawing.Size(65, 13);
-            this.lblModalidade.TabIndex = 0;
-            this.lblModalidade.Text = "Modalidade:";
+            this.txtDiaDaSemana.Location = new System.Drawing.Point(132, 153);
+            this.txtDiaDaSemana.Name = "txtDiaDaSemana";
+            this.txtDiaDaSemana.Size = new System.Drawing.Size(307, 20);
+            this.txtDiaDaSemana.TabIndex = 7;
             // 
-            // lblProfessor
+            // txtProfessor
             // 
-            this.lblProfessor.AutoSize = true;
-            this.lblProfessor.Location = new System.Drawing.Point(72, 106);
-            this.lblProfessor.Name = "lblProfessor";
-            this.lblProfessor.Size = new System.Drawing.Size(54, 13);
-            this.lblProfessor.TabIndex = 1;
-            this.lblProfessor.Text = "Professor:";
+            this.txtProfessor.Location = new System.Drawing.Point(132, 103);
+            this.txtProfessor.Name = "txtProfessor";
+            this.txtProfessor.Size = new System.Drawing.Size(307, 20);
+            this.txtProfessor.TabIndex = 6;
             // 
-            // lblDiaDaSemana
+            // txtModalidade
             // 
-            this.lblDiaDaSemana.AutoSize = true;
-            this.lblDiaDaSemana.Location = new System.Drawing.Point(43, 156);
-            this.lblDiaDaSemana.Name = "lblDiaDaSemana";
-            this.lblDiaDaSemana.Size = new System.Drawing.Size(83, 13);
-            this.lblDiaDaSemana.TabIndex = 2;
-            this.lblDiaDaSemana.Text = "Dia da Semana:";
+            this.txtModalidade.Location = new System.Drawing.Point(132, 61);
+            this.txtModalidade.Name = "txtModalidade";
+            this.txtModalidade.Size = new System.Drawing.Size(307, 20);
+            this.txtModalidade.TabIndex = 5;
+            // 
+            // btnCadastrar
+            // 
+            this.btnCadastrar.Location = new System.Drawing.Point(165, 249);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(232, 32);
+            this.btnCadastrar.TabIndex = 4;
+            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // lblHora
             // 
@@ -100,42 +104,32 @@ namespace aula13_banco
             this.lblHora.Text = "Hora:";
             this.lblHora.Click += new System.EventHandler(this.label4_Click);
             // 
-            // btnCadastrar
+            // lblDiaDaSemana
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(165, 249);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(232, 32);
-            this.btnCadastrar.TabIndex = 4;
-            this.btnCadastrar.Text = "Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.lblDiaDaSemana.AutoSize = true;
+            this.lblDiaDaSemana.Location = new System.Drawing.Point(43, 156);
+            this.lblDiaDaSemana.Name = "lblDiaDaSemana";
+            this.lblDiaDaSemana.Size = new System.Drawing.Size(83, 13);
+            this.lblDiaDaSemana.TabIndex = 2;
+            this.lblDiaDaSemana.Text = "Dia da Semana:";
             // 
-            // txtModalidade
+            // lblProfessor
             // 
-            this.txtModalidade.Location = new System.Drawing.Point(132, 61);
-            this.txtModalidade.Name = "txtModalidade";
-            this.txtModalidade.Size = new System.Drawing.Size(307, 20);
-            this.txtModalidade.TabIndex = 5;
+            this.lblProfessor.AutoSize = true;
+            this.lblProfessor.Location = new System.Drawing.Point(72, 106);
+            this.lblProfessor.Name = "lblProfessor";
+            this.lblProfessor.Size = new System.Drawing.Size(54, 13);
+            this.lblProfessor.TabIndex = 1;
+            this.lblProfessor.Text = "Professor:";
             // 
-            // txtProfessor
+            // lblModalidade
             // 
-            this.txtProfessor.Location = new System.Drawing.Point(132, 103);
-            this.txtProfessor.Name = "txtProfessor";
-            this.txtProfessor.Size = new System.Drawing.Size(307, 20);
-            this.txtProfessor.TabIndex = 6;
-            // 
-            // txtDiaDaSemana
-            // 
-            this.txtDiaDaSemana.Location = new System.Drawing.Point(132, 153);
-            this.txtDiaDaSemana.Name = "txtDiaDaSemana";
-            this.txtDiaDaSemana.Size = new System.Drawing.Size(307, 20);
-            this.txtDiaDaSemana.TabIndex = 7;
-            // 
-            // txtHora
-            // 
-            this.txtHora.Location = new System.Drawing.Point(132, 203);
-            this.txtHora.Name = "txtHora";
-            this.txtHora.Size = new System.Drawing.Size(307, 20);
-            this.txtHora.TabIndex = 8;
+            this.lblModalidade.AutoSize = true;
+            this.lblModalidade.Location = new System.Drawing.Point(61, 61);
+            this.lblModalidade.Name = "lblModalidade";
+            this.lblModalidade.Size = new System.Drawing.Size(65, 13);
+            this.lblModalidade.TabIndex = 0;
+            this.lblModalidade.Text = "Modalidade:";
             // 
             // dataGridView1
             // 
@@ -151,6 +145,15 @@ namespace aula13_banco
             // 
             this.Modalidade.HeaderText = "Modalidade";
             this.Modalidade.Name = "Modalidade";
+            // 
+            // mskdtxtHora
+            // 
+            this.mskdtxtHora.Location = new System.Drawing.Point(132, 206);
+            this.mskdtxtHora.Mask = "00:00";
+            this.mskdtxtHora.Name = "mskdtxtHora";
+            this.mskdtxtHora.Size = new System.Drawing.Size(100, 20);
+            this.mskdtxtHora.TabIndex = 8;
+            this.mskdtxtHora.ValidatingType = typeof(System.DateTime);
             // 
             // cadTurma
             // 
@@ -177,11 +180,11 @@ namespace aula13_banco
         private System.Windows.Forms.Label lblProfessor;
         private System.Windows.Forms.Label lblModalidade;
         private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.TextBox txtHora;
         private System.Windows.Forms.TextBox txtDiaDaSemana;
         private System.Windows.Forms.TextBox txtProfessor;
         private System.Windows.Forms.TextBox txtModalidade;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Modalidade;
+        internal System.Windows.Forms.MaskedTextBox mskdtxtHora;
     }
 }

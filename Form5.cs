@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,14 +16,24 @@ namespace aula13_banco
         public Form5()
         {
             InitializeComponent();
+
+            WindowState = FormWindowState.Maximized;
+            Modalidade cad = new Modalidade();
+            MySqlDataReader r = cad.consultarTodasModalide();
+            while (r.Read())
+            {
+                cmb2Desc.Items.Add(r["descricaoModalidade"].ToString());
+            }
+            DAO_Conexao.con.Close();
+
         }
 
         private void btnExluir_Click(object sender, EventArgs e)
         {
-            Modalidade mod = new Modalidade(txtExc.Text);
-            if( mod.excluirModalidade())
+            Modalidade mod = new Modalidade();
+            if( mod.excluirModalidade(cmb2Desc.Text))
             {
-                Console.WriteLine("excluido com sucesso!");
+                MessageBox.Show("excluido com sucesso!");
             }
            
             //boa sorte

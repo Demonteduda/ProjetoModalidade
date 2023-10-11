@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data">
-      <HintPath>..\..\..\..\Downloads\ProjetoModalidade-3e848f5ce7d4078350d5fd4f90d275876c5a7908\mysql-connector-net-8.1.0-noinstall (1)\netstandard2.0\MySql.Data.dll</HintPath>
+      <HintPath>mysql-connector-net-8.1.0-noinstall (1)\v4.6.2\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -114,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="cadTurma.resx">
       <DependentUpon>cadTurma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExcluirTurma.resx">
+      <DependentUpon>ExcluirTurma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

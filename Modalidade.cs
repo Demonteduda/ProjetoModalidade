@@ -67,20 +67,15 @@ namespace aula13_banco
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudo_Modalidade" +
-                    "WHERE descricaoModaliddae = '" + descricao + "'", DAO_Conexao.con);
-                MySqlDataReader resultado = consulta.ExecuteReader();
-                if (resultado.Read())
-                {
-                    consul = consulta.ExecuteReader();
-                }
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudio_modalidade WHERE descricaoModalidade = '" + descricao + "'", DAO_Conexao.con);
+                Console.WriteLine("SELECT * FROM Estudio_modalidade WHERE descricaoModalidade = '" + descricao + "'");
+                consul = consulta.ExecuteReader();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
           
-
             return consul;
         }
         
@@ -91,8 +86,8 @@ namespace aula13_banco
             try
             {
                 DAO_Conexao.con.Open();
-                Console.WriteLine("Abriu -------------------------");
-                MySqlCommand atualizar = new MySqlCommand("Update Estudio_modalidade where descricaoModalidade = "+desc1+" ( " +
+                Console.WriteLine("Abriu Atualização-------------------------");
+                MySqlCommand atualizar = new MySqlCommand("Update Estudio_modalidade set atival = 1 where descricaoModalidade = " + desc1+" ( " +
                     "precoModalidades, qtdAlunos, qtdAulas) values " +
                "('" + preco1 + "','" + qtd_alunos1 + "','" + qtd_aulas1 + "')");
                 atualizar.ExecuteNonQuery();
@@ -106,6 +101,7 @@ namespace aula13_banco
             {
                 DAO_Conexao.con.Close();
             }
+            Console.WriteLine("Fechou Atualização -------------------------");
             return atu;
 
 
@@ -128,14 +124,14 @@ namespace aula13_banco
             return consul;
         }
         
-        public bool excluirModalidade()
+        public bool excluirModalidade(string descri)
         {
             bool exc = false;
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand exclui = new MySqlCommand("update Estudio_Modalidae set atival = 1 WHERE" +
-                    " descricaoModalidade = '"+descricao+"'" , DAO_Conexao.con);
+                MySqlCommand exclui = new MySqlCommand("delete from Estudio_modalidade WHERE" +
+                    " descricaoModalidade = '"+descri+"'" , DAO_Conexao.con);
                 exclui.ExecuteNonQuery();
                 exc = true;
             }

@@ -35,5 +35,29 @@ namespace aula13_banco
         {
 
         }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            Modalidade mod = new Modalidade();
+            DAO_Conexao.con.Close();
+            mod = new Modalidade(dataGridView1.Text);
+            MySqlDataReader re = mod.consultarModalidade();
+            while (re.Read())
+            {
+                txtModalidade.Text= re["idEstudio_Modalidade"].ToString();            
+            }
+
+            Turma turmacad = new Turma(txtProfessor.Text, txtDiaDaSemana.Text, mskdtxtHora.Text, int.Parse(txtModalidade.Text) );
+
+          if(turmacad.cadastrarTurma())
+            {
+                MessageBox.Show("Turma cadastrada com sucesso!");
+            }
+          else
+            {
+                MessageBox.Show("Erro no Cadastro!");
+            }
+
+        }
     }
 }

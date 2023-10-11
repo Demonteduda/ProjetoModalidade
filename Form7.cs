@@ -19,7 +19,6 @@ namespace aula13_banco
             InitializeComponent();
 
             WindowState = FormWindowState.Maximized;
-            this.opc = opc;
             Modalidade cad = new Modalidade();
             MySqlDataReader r = cad.consultarTodasModalide();
             while (r.Read())
@@ -41,25 +40,26 @@ namespace aula13_banco
 
         private void btnConsAtu_Click(object sender, EventArgs e)
         {
-            
-            Modalidade mod = new Modalidade();
+            Modalidade mod = null;
+
+
             if (opc == 1)
             {
-
+                mod = new Modalidade();
                 if (mod.atualizarModalidade(cmbDesc.Text, decimal.Parse(txtPreco.Text), int.Parse(txtQtdAlunos.Text), int.Parse(txtQtdeAulas.Text)))
                 {
                     MessageBox.Show("Atualizado com sucesso!");
                 }
                 else
                 {
-                    MessageBox.Show("Erro ao cadastar!");
+                    MessageBox.Show("Erro ao atualizar!");
                 }
             }
             else
             {
-                Modalidade m = new Modalidade();
-                mod.consultarTodasModalide();
-                MySqlDataReader re = mod.consultarTodasModalide();
+                DAO_Conexao.con.Close();
+                mod = new Modalidade(cmbDesc.Text);
+                MySqlDataReader re = mod.consultarModalidade();
                 while(re.Read())
                 { 
                     txtPreco.Text = re["precoModalidade"].ToString();
