@@ -21,7 +21,7 @@ namespace aula13_banco
             Modalidade con_mod = new Modalidade();
             MySqlDataReader r = con_mod.consultarTodasModalide();
             while (r.Read())
-                dataGridView1.Rows.Add(r["descricaoModalidade"].ToString();
+                dataGridView1.Rows.Add(r["descricaoModalidade"].ToString());
             DAO_Conexao.con.Close();
 
         }

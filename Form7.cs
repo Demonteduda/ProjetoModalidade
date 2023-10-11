@@ -60,10 +60,13 @@ namespace aula13_banco
                 Modalidade m = new Modalidade();
                 mod.consultarTodasModalide();
                 MySqlDataReader re = mod.consultarTodasModalide();
-
-                txtPreco.Text = re["precoModalidade"].ToString();
-                txtQtdAlunos.Text = re["qtdAlunos"].ToString();
-                txtQtdeAulas.Text = re["qtdAulas"].ToString();
+                while(re.Read())
+                { 
+                    txtPreco.Text = re["precoModalidade"].ToString();
+                   txtQtdAlunos.Text = re["qtdAlunos"].ToString();
+                    txtQtdeAulas.Text = re["qtdAulas"].ToString();
+                }
+              
             }
 
             DAO_Conexao.con.Close();

@@ -30,36 +30,46 @@ namespace aula13_banco
             this.dia_semana = dia_semana;
             this.modalidade = modalidade;
         }
+    }
+}
 
-        public bool cadastrarTurma()
+      /*  public bool cadastrarTurma()
+        {
+            bool cadastrar = false;
+      try
+      {
+           DAO_Conexao.con.Open();
+
+            Console.WriteLine()
+      }
+
+
+        }
+
+       //public bool excluirTurma()
         {
 
         }
 
-        public bool excluirTurma()
+       // public MySqlDataReader consultarTurma()
         {
 
         }
 
-        public MySqlDataReader consultarTurma()
-        {
-
-        }
-
-        public MySqlDataReader consultarTurma01()
+      //  public MySqlDataReader consultarTurma01()
         {
 
         }
 
 
 
-        public string Professor { get => professor; set => professor = value; }
+       // public string Professor { get => professor; set => professor = value; }
       
-        public string Dia_semana { get => dia_semana; set => dia_semana = value; }
+     //   public string Dia_semana { get => dia_semana; set => dia_semana = value; }
 
-        public string Hora { get => hora; set => hora = value; }  
-        public int Modalidade { get => modalidade; set => modalidade = value; }
+      //  public string Hora { get => hora; set => hora = value; }  
+       // public int Modalidade { get => modalidade; set => modalidade = value; }
 
 
     }
-}
+}*/

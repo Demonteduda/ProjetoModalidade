@@ -41,15 +41,15 @@ namespace aula13_banco
             this.atualizarModalidadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarModalideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excluirModalidadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.turmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarTurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.excluirTurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.turmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastrarTurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.excluirTurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -150,6 +150,28 @@ namespace aula13_banco
             this.excluirModalidadeToolStripMenuItem.Text = "Excluir Modalidade";
             this.excluirModalidadeToolStripMenuItem.Click += new System.EventHandler(this.excluirModalidadeToolStripMenuItem_Click);
             // 
+            // turmaToolStripMenuItem
+            // 
+            this.turmaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastrarTurmaToolStripMenuItem,
+            this.excluirTurmaToolStripMenuItem});
+            this.turmaToolStripMenuItem.Name = "turmaToolStripMenuItem";
+            this.turmaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.turmaToolStripMenuItem.Text = "Turma";
+            // 
+            // cadastrarTurmaToolStripMenuItem
+            // 
+            this.cadastrarTurmaToolStripMenuItem.Name = "cadastrarTurmaToolStripMenuItem";
+            this.cadastrarTurmaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.cadastrarTurmaToolStripMenuItem.Text = "Cadastrar Turma";
+            this.cadastrarTurmaToolStripMenuItem.Click += new System.EventHandler(this.cadastrarTurmaToolStripMenuItem_Click);
+            // 
+            // excluirTurmaToolStripMenuItem
+            // 
+            this.excluirTurmaToolStripMenuItem.Name = "excluirTurmaToolStripMenuItem";
+            this.excluirTurmaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.excluirTurmaToolStripMenuItem.Text = "Excluir Turma";
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button1);
@@ -182,6 +204,7 @@ namespace aula13_banco
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 3;
             this.textBox2.Text = "123";
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox1
             // 
@@ -190,6 +213,7 @@ namespace aula13_banco
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 2;
             this.textBox1.Text = "duda";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label2
             // 
@@ -208,28 +232,6 @@ namespace aula13_banco
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Login:";
-            // 
-            // turmaToolStripMenuItem
-            // 
-            this.turmaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastrarTurmaToolStripMenuItem,
-            this.excluirTurmaToolStripMenuItem});
-            this.turmaToolStripMenuItem.Name = "turmaToolStripMenuItem";
-            this.turmaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.turmaToolStripMenuItem.Text = "Turma";
-            // 
-            // cadastrarTurmaToolStripMenuItem
-            // 
-            this.cadastrarTurmaToolStripMenuItem.Name = "cadastrarTurmaToolStripMenuItem";
-            this.cadastrarTurmaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cadastrarTurmaToolStripMenuItem.Text = "Cadastrar Turma";
-            this.cadastrarTurmaToolStripMenuItem.Click += new System.EventHandler(this.cadastrarTurmaToolStripMenuItem_Click);
-            // 
-            // excluirTurmaToolStripMenuItem
-            // 
-            this.excluirTurmaToolStripMenuItem.Name = "excluirTurmaToolStripMenuItem";
-            this.excluirTurmaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.excluirTurmaToolStripMenuItem.Text = "Excluir Turma";
             // 
             // Form1
             // 
