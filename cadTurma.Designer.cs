@@ -30,6 +30,7 @@ namespace aula13_banco
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.mskdtxtHora = new System.Windows.Forms.MaskedTextBox();
             this.txtDiaDaSemana = new System.Windows.Forms.TextBox();
             this.txtProfessor = new System.Windows.Forms.TextBox();
             this.txtModalidade = new System.Windows.Forms.TextBox();
@@ -40,7 +41,6 @@ namespace aula13_banco
             this.lblModalidade = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Modalidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mskdtxtHora = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +62,15 @@ namespace aula13_banco
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Turma";
+            // 
+            // mskdtxtHora
+            // 
+            this.mskdtxtHora.Location = new System.Drawing.Point(132, 206);
+            this.mskdtxtHora.Mask = "00:00";
+            this.mskdtxtHora.Name = "mskdtxtHora";
+            this.mskdtxtHora.Size = new System.Drawing.Size(100, 20);
+            this.mskdtxtHora.TabIndex = 8;
+            this.mskdtxtHora.ValidatingType = typeof(System.DateTime);
             // 
             // txtDiaDaSemana
             // 
@@ -140,20 +149,13 @@ namespace aula13_banco
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(577, 174);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+          
             // 
             // Modalidade
             // 
             this.Modalidade.HeaderText = "Modalidade";
             this.Modalidade.Name = "Modalidade";
-            // 
-            // mskdtxtHora
-            // 
-            this.mskdtxtHora.Location = new System.Drawing.Point(132, 206);
-            this.mskdtxtHora.Mask = "00:00";
-            this.mskdtxtHora.Name = "mskdtxtHora";
-            this.mskdtxtHora.Size = new System.Drawing.Size(100, 20);
-            this.mskdtxtHora.TabIndex = 8;
-            this.mskdtxtHora.ValidatingType = typeof(System.DateTime);
             // 
             // cadTurma
             // 

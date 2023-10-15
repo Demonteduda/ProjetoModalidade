@@ -30,13 +30,13 @@ namespace aula13_banco
 
         private void btnExluir_Click(object sender, EventArgs e)
         {
-            Modalidade mod = new Modalidade();
-            if( mod.excluirModalidade(cmb2Desc.Text))
+            Modalidade mod = new Modalidade(cmb2Desc.Text);
+            Console.WriteLine("Entrouu");
+            if ( mod.excluirModalidade(cmb2Desc.Text))
             {
                 MessageBox.Show("excluido com sucesso!");
             }
            
-            //boa sorte
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

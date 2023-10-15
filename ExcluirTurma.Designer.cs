@@ -30,21 +30,21 @@ namespace aula13_banco
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.cmbHora = new System.Windows.Forms.ComboBox();
+            this.cmbSemana = new System.Windows.Forms.ComboBox();
+            this.cmbModalidade = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cmbHora);
+            this.groupBox1.Controls.Add(this.cmbSemana);
+            this.groupBox1.Controls.Add(this.cmbModalidade);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -56,32 +56,30 @@ namespace aula13_banco
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Turma";
             // 
-            // button1
+            // cmbHora
             // 
-            this.button1.Location = new System.Drawing.Point(138, 207);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(256, 38);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Excluir";
-            this.button1.UseVisualStyleBackColor = true;
+            this.cmbHora.FormattingEnabled = true;
+            this.cmbHora.Location = new System.Drawing.Point(165, 127);
+            this.cmbHora.Name = "cmbHora";
+            this.cmbHora.Size = new System.Drawing.Size(209, 21);
+            this.cmbHora.TabIndex = 6;
             // 
-            // label1
+            // cmbSemana
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(85, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Modalidade:";
+            this.cmbSemana.FormattingEnabled = true;
+            this.cmbSemana.Location = new System.Drawing.Point(165, 90);
+            this.cmbSemana.Name = "cmbSemana";
+            this.cmbSemana.Size = new System.Drawing.Size(209, 21);
+            this.cmbSemana.TabIndex = 5;
             // 
-            // label2
+            // cmbModalidade
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(69, 93);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Dia da semana:";
+            this.cmbModalidade.FormattingEnabled = true;
+            this.cmbModalidade.Location = new System.Drawing.Point(165, 45);
+            this.cmbModalidade.Name = "cmbModalidade";
+            this.cmbModalidade.Size = new System.Drawing.Size(209, 21);
+            this.cmbModalidade.TabIndex = 4;
+            this.cmbModalidade.SelectedIndexChanged += new System.EventHandler(this.cmbModalidade_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -92,29 +90,33 @@ namespace aula13_banco
             this.label3.TabIndex = 3;
             this.label3.Text = "Hora:";
             // 
-            // comboBox1
+            // label2
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(165, 45);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(209, 21);
-            this.comboBox1.TabIndex = 4;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(69, 93);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Dia da semana:";
             // 
-            // comboBox2
+            // label1
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(165, 90);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(209, 21);
-            this.comboBox2.TabIndex = 5;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(85, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Modalidade:";
             // 
-            // comboBox3
+            // button1
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(165, 127);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(209, 21);
-            this.comboBox3.TabIndex = 6;
+            this.button1.Location = new System.Drawing.Point(129, 191);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(256, 38);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Excluir";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ExcluirTurma
             // 
@@ -133,9 +135,9 @@ namespace aula13_banco
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbHora;
+        private System.Windows.Forms.ComboBox cmbSemana;
+        private System.Windows.Forms.ComboBox cmbModalidade;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

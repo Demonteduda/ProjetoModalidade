@@ -13,20 +13,38 @@ namespace aula13_banco
 {
     public partial class cadTurma : Form
     {
-        public cadTurma()
-        {
-            InitializeComponent();
-            WindowState = FormWindowState.Maximized;
+       
+            bool att;
+            public cadTurma()
+            {
+                try
+                {
+                    InitializeComponent();
+                    WindowState = FormWindowState.Maximized;
+                    Modalidade con_Mod = new Modalidade();
+                    MySqlDataReader r = con_Mod.consultarTodasModalide();
 
-            Modalidade con_mod = new Modalidade();
-            MySqlDataReader r = con_mod.consultarTodasModalide();
-            while (r.Read())
-                dataGridView1.Rows.Add(r["descricaoModalidade"].ToString());
-            DAO_Conexao.con.Close();
+                    while (r.Read())
+                    {
+                        int a = int.Parse(r["ativa"].ToString());
+                        if (a == 0)
+                        {
+                            dataGridView1.Rows.Add(r["descricaoModalidade"].ToString());
+                        }
+                    }
+                    txtModalidade.Enabled = false;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro no preencher");
+                }
+                finally
+                {
+                    DAO_Conexao.con.Close();
+                }
 
-        }
-
-        private void label4_Click(object sender, EventArgs e)
+            }
+            private void label4_Click(object sender, EventArgs e)
         {
 
         }
@@ -38,26 +56,73 @@ namespace aula13_banco
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            Modalidade mod = new Modalidade();
-            DAO_Conexao.con.Close();
-            mod = new Modalidade(dataGridView1.Text);
-            MySqlDataReader re = mod.consultarModalidade();
-            while (re.Read())
-            {
-                txtModalidade.Text= re["idEstudio_Modalidade"].ToString();            
-            }
 
-            Turma turmacad = new Turma(txtProfessor.Text, txtDiaDaSemana.Text, mskdtxtHora.Text, int.Parse(txtModalidade.Text) );
-
-          if(turmacad.cadastrarTurma())
+            string dia_semana = txtDiaDaSemana.Text;
+            string hora = mskdtxtHora.Text;
+            string prof = txtProfessor.Text;
+            string mod = txtModalidade.Text;
+            int modalidade = -1;
+            //int qtde = int.Parse(txtQtdeAluno.Text);
+            try
             {
-                MessageBox.Show("Turma cadastrada com sucesso!");
-            }
-          else
-            {
-                MessageBox.Show("Erro no Cadastro!");
-            }
+                Modalidade m = new Modalidade();
+                MySqlDataReader r = m.consultarModalidade();
+                while (r.Read())
+                {
+                    modalidade = int.Parse(r["idEstudio_Modalidade"].ToString());
+                }
+                MessageBox.Show(modalidade.ToString());
 
+                DAO_Conexao.con.Close();
+                MessageBox.Show(modalidade.ToString());
+                Turma t = new Turma(prof, dia_semana, hora, modalidade);
+
+                if (t.cadastar())
+                {
+                    MessageBox.Show("Turma cadastrada");
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao cadatrar turma");
+                }
+                txtDiaDaSemana.Text = "";
+                mskdtxtHora.Text = "";
+                txtProfessor.Text = "";
+                txtModalidade.Text = "";
+                //txtQtdeAluno.Text = "";
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
         }
+
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        { 
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Acesse o valor da célula selecionada no DataGrid
+                object cellValue = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+                // Verifique se o valor não é nulo
+                if (cellValue != null)
+                {
+                   
+                // Atribua o valor da célula ao TextBox
+                 txtModalidade.Text = cellValue.ToString();
+                }
+
+            }
+        }
+
+
     }
 }
+        

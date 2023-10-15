@@ -13,7 +13,9 @@ namespace aula13_banco
         private string descricao;
         private decimal preco;
         private int qtd_alunos, qtd_aulas;
-    
+        private int ati;
+        private int codigoID;
+
 
         public Modalidade( string descricao, decimal preco, int qtd_alunos, int qtd_aulas )
         {  
@@ -84,12 +86,13 @@ namespace aula13_banco
             bool atu = false;
 
             try
-            {
+            {      
                 DAO_Conexao.con.Open();
                 Console.WriteLine("Abriu Atualização-------------------------");
-                MySqlCommand atualizar = new MySqlCommand("Update Estudio_modalidade set atival = 1 where descricaoModalidade = " + desc1+" ( " +
-                    "precoModalidades, qtdAlunos, qtdAulas) values " +
-               "('" + preco1 + "','" + qtd_alunos1 + "','" + qtd_aulas1 + "')");
+
+                MySqlCommand atualizar = new MySqlCommand("update Estudio_modalidade set descricaoModalidade='" + descricao + "'," +
+                    " precoModalidade=" + preco + ", qtdAlunos=" + qtd_alunos + ", qtdAulas=" + qtd_aulas + ", atival=" + ati + 
+                    " where idEstudio_Modalidade=" + codigoID + "", DAO_Conexao.con);
                 atualizar.ExecuteNonQuery();
                 atu = true;
             }
@@ -130,8 +133,8 @@ namespace aula13_banco
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand exclui = new MySqlCommand("delete from Estudio_modalidade WHERE" +
-                    " descricaoModalidade = '"+descri+"'" , DAO_Conexao.con);
+                MySqlCommand exclui = new MySqlCommand("update Estudio_modalidade set atival" +
+             "= 1 where descricaoModalidade = '" + descri + "'", DAO_Conexao.con);
                 exclui.ExecuteNonQuery();
                 exc = true;
             }
