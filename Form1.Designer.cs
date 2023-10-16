@@ -50,6 +50,7 @@ namespace aula13_banco
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.excluirTurmaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -154,7 +155,8 @@ namespace aula13_banco
             // 
             this.turmaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrarTurmaToolStripMenuItem,
-            this.excluirTurmaToolStripMenuItem});
+            this.excluirTurmaToolStripMenuItem,
+            this.excluirTurmaToolStripMenuItem1});
             this.turmaToolStripMenuItem.Name = "turmaToolStripMenuItem";
             this.turmaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.turmaToolStripMenuItem.Text = "Turma";
@@ -170,7 +172,7 @@ namespace aula13_banco
             // 
             this.excluirTurmaToolStripMenuItem.Name = "excluirTurmaToolStripMenuItem";
             this.excluirTurmaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.excluirTurmaToolStripMenuItem.Text = "Excluir Turma";
+            this.excluirTurmaToolStripMenuItem.Text = "Atualizar Turma";
             this.excluirTurmaToolStripMenuItem.Click += new System.EventHandler(this.excluirTurmaToolStripMenuItem_Click);
             // 
             // groupBox1
@@ -234,6 +236,13 @@ namespace aula13_banco
             this.label1.TabIndex = 0;
             this.label1.Text = "Login:";
             // 
+            // excluirTurmaToolStripMenuItem1
+            // 
+            this.excluirTurmaToolStripMenuItem1.Name = "excluirTurmaToolStripMenuItem1";
+            this.excluirTurmaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.excluirTurmaToolStripMenuItem1.Text = "Excluir Turma";
+            this.excluirTurmaToolStripMenuItem1.Click += new System.EventHandler(this.excluirTurmaToolStripMenuItem1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,6 +287,7 @@ namespace aula13_banco
         private System.Windows.Forms.ToolStripMenuItem turmaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrarTurmaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem excluirTurmaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem excluirTurmaToolStripMenuItem1;
     }
 }
 

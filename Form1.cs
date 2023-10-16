@@ -121,6 +121,13 @@ namespace aula13_banco
 
         private void excluirTurmaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            AtualizarTurma atuTurma1 = new AtualizarTurma();
+            atuTurma1.MdiParent = this;
+            atuTurma1.Show();
+        }
+
+        private void excluirTurmaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
             ExcluirTurma excluirTurma1 = new ExcluirTurma();
             excluirTurma1.MdiParent = this;
             excluirTurma1.Show();

@@ -60,8 +60,7 @@ namespace aula13_banco
             string dia_semana = txtDiaDaSemana.Text;
             string hora = mskdtxtHora.Text;
             string prof = txtProfessor.Text;
-            string mod = txtModalidade.Text;
-            int modalidade = -1;
+            int modalidade=0;
             //int qtde = int.Parse(txtQtdeAluno.Text);
             try
             {

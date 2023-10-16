@@ -25,7 +25,7 @@ namespace aula13_banco
             MySqlDataReader re = modal.consultarModalidade();
             while (re.Read())
             {
-                cmbModalidade.Text = re["idModalidade"].ToString(); 
+                cmbModalidade.Text = re["idModalidade"].ToString();
             }
 
         }
@@ -33,16 +33,14 @@ namespace aula13_banco
         private void button1_Click(object sender, EventArgs e)
         {
 
+            Turma tur = new Turma(cmbModalidade.SelectedIndex);
+            Console.WriteLine("Entrouu");
+            if (tur.excluir())
+            {
+                MessageBox.Show("excluido com sucesso!");
+            }
         }
 
-        /* private void button1_Click(object sender, EventArgs e)
-         {
-             Turma tur = new Turma(cmbModalidade.SelectedIndex);
-             Console.WriteLine("Entrouu");
-             if (tur.excluirTurma(cmbModalidade.SelectedIndex))
-             {
-                 MessageBox.Show("excluido com sucesso!");
-             }
-         }*/
     }
 }
+
