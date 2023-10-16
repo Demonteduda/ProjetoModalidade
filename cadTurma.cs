@@ -26,7 +26,7 @@ namespace aula13_banco
 
                     while (r.Read())
                     {
-                        int a = int.Parse(r["ativa"].ToString());
+                        int a = int.Parse(r["atival"].ToString());
                         if (a == 0)
                         {
                             dataGridView1.Rows.Add(r["descricaoModalidade"].ToString());
@@ -65,6 +65,7 @@ namespace aula13_banco
             //int qtde = int.Parse(txtQtdeAluno.Text);
             try
             {
+
                 Modalidade m = new Modalidade();
                 MySqlDataReader r = m.consultarModalidade();
                 while (r.Read())

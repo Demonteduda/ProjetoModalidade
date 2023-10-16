@@ -60,7 +60,9 @@ namespace aula13_banco
             {
                 DAO_Conexao.con.Open();
 
-                MySqlCommand insere = new MySqlCommand("insert into Estudio_Turma(idModalidade,professorTurma, diaSemanaTurma, horaTurma,alunosmatriculadosTurma) values (" + modalidade + ",'" + professor + "','" + dia_semana + "','" + hora + "'," + Qtde_Alunos + ")", DAO_Conexao.con);
+                MySqlCommand insere = new MySqlCommand("insert into Estudio_Turma(idModalidade,professorTurma," +
+                    " diaSemanaTurma, horaTurma,alunosmatriculadosTurma) values (" + modalidade + ",'" + professor + "','"
+                    + dia_semana + "','" + hora + "'," + qtde_Alunos + ")", DAO_Conexao.con);
                 insere.ExecuteNonQuery();
                 cad = true;
             }
