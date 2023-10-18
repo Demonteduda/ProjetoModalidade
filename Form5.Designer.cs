@@ -30,9 +30,9 @@ namespace aula13_banco
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmb2Desc = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnExluir = new System.Windows.Forms.Button();
-            this.cmb2Desc = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +49,14 @@ namespace aula13_banco
             this.groupBox1.Text = "Excluir Modalidade";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // cmb2Desc
+            // 
+            this.cmb2Desc.FormattingEnabled = true;
+            this.cmb2Desc.Location = new System.Drawing.Point(103, 68);
+            this.cmb2Desc.Name = "cmb2Desc";
+            this.cmb2Desc.Size = new System.Drawing.Size(121, 21);
+            this.cmb2Desc.TabIndex = 4;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -60,21 +68,13 @@ namespace aula13_banco
             // 
             // btnExluir
             // 
-            this.btnExluir.Location = new System.Drawing.Point(136, 143);
+            this.btnExluir.Location = new System.Drawing.Point(140, 146);
             this.btnExluir.Name = "btnExluir";
             this.btnExluir.Size = new System.Drawing.Size(177, 40);
             this.btnExluir.TabIndex = 1;
             this.btnExluir.Text = "Excluir";
             this.btnExluir.UseVisualStyleBackColor = true;
             this.btnExluir.Click += new System.EventHandler(this.btnExluir_Click);
-            // 
-            // cmb2Desc
-            // 
-            this.cmb2Desc.FormattingEnabled = true;
-            this.cmb2Desc.Location = new System.Drawing.Point(103, 68);
-            this.cmb2Desc.Name = "cmb2Desc";
-            this.cmb2Desc.Size = new System.Drawing.Size(121, 21);
-            this.cmb2Desc.TabIndex = 4;
             // 
             // Form5
             // 

@@ -35,8 +35,10 @@ namespace aula13_banco
             if ( mod.excluirModalidade(cmb2Desc.Text))
             {
                 MessageBox.Show("excluido com sucesso!");
+               
             }
            
+            
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

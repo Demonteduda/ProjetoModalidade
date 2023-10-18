@@ -54,7 +54,7 @@ namespace aula13_banco
                 MessageBox.Show("Usuário/Senha inválidos");
             if (tipo == 1)
             {
-                MessageBox.Show("Usuário ADM");
+            
                 groupBox1.Visible = false;
                 menuStrip1.Enabled = true;
             }
@@ -121,7 +121,7 @@ namespace aula13_banco
 
         private void excluirTurmaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AtualizarTurma atuTurma1 = new AtualizarTurma();
+            AtualizarTurma atuTurma1 = new AtualizarTurma(1);
             atuTurma1.MdiParent = this;
             atuTurma1.Show();
         }
@@ -131,6 +131,13 @@ namespace aula13_banco
             ExcluirTurma excluirTurma1 = new ExcluirTurma();
             excluirTurma1.MdiParent = this;
             excluirTurma1.Show();
+        }
+
+        private void consultarTurmaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AtualizarTurma atuTurma1 = new AtualizarTurma(2);
+            atuTurma1.MdiParent = this;
+            atuTurma1.Show();
         }
     }
 }

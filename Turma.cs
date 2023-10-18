@@ -79,15 +79,15 @@ namespace aula13_banco
 
         }
 
-        public MySqlDataReader consultarTurma(int idmod)
+        public MySqlDataReader consultarTurma(int mod1)
         {
             MySqlDataReader consulta = null;
 
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand consultaBool = new MySqlCommand("SELECT * FROM Estudio_Turma WHERE idEstudio_Turma = '" + idmod + "'", DAO_Conexao.con);
-                Console.WriteLine("SELECT * FROM Estudio_Turma WHERE idEstudio_Turma = '" + idmod + "'");
+                MySqlCommand consultaBool = new MySqlCommand("SELECT * FROM Estudio_Turma WHERE idModalidade = " + mod1 + "", DAO_Conexao.con);
+                Console.WriteLine("SELECT * FROM Estudio_Turma WHERE idEModalidade = " + mod1 + "");
                 consulta = consultaBool.ExecuteReader();
                
             }
@@ -96,24 +96,18 @@ namespace aula13_banco
                 MessageBox.Show(ex.ToString());
             }
 
-            finally
-            {
-                DAO_Conexao.con.Close();
-            }
-
             return consulta;
-
 
         }
 
 
-        public bool atualizar()
+        public bool atualizar(int mod, string profmod, string prof, string diase, string hor)
         {
             bool updated = false;
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand update = new MySqlCommand("update Estudio_Turma set idModalidade='" + modalidade + "', professorTurma=" + professor + ", horaTurma=" + hora + ",alunosmatriculadosTurma=" + qtde_Alunos + " where idEstudio_Modalidade=" + id + "", DAO_Conexao.con);
+                MySqlCommand update = new MySqlCommand("update Estudio_Turma set professorTurma='" + professor + "', diasemanaTurma='" + diase+  "', horaTurma='" + hora + "' where idModalidade=" + mod + " and professorTurma= '"+profmod+"'", DAO_Conexao.con);
                 update.ExecuteNonQuery();
                 updated = true;
             }
@@ -130,29 +124,21 @@ namespace aula13_banco
 
         public MySqlDataReader consultarTodasTurmas()
         {
-            MySqlCommand consultaTodos = null;
-            MySqlDataReader resultadoTodos = null;
-
+            MySqlDataReader consul = null;
             try
             {
                 DAO_Conexao.con.Open();
-                consultaTodos = new MySqlCommand("SELECT * FROM Estudio_Turma", DAO_Conexao.con);
-                resultadoTodos = consultaTodos.ExecuteReader();
-
-
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudio_Turma", DAO_Conexao.con);
+                consul = consulta.ExecuteReader();
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex.ToString());
             }
+            
+           
 
-            finally
-            {
-
-
-            }
-            return resultadoTodos;
+            return consul;
         }
 
         public bool excluir()
@@ -175,6 +161,7 @@ namespace aula13_banco
             }
             return exc;
         }
+   
 
 
         public MySqlDataReader consultarTurmaId(int id)
@@ -198,7 +185,7 @@ namespace aula13_banco
 
             finally
             {
-
+                DAO_Conexao.con.Close();
 
             }
             return resultado;

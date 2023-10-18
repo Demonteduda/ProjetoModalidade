@@ -13,7 +13,8 @@ namespace aula13_banco
 {
     public partial class AtualizarTurma : Form
     {
-        public AtualizarTurma()
+        int opc;
+        public AtualizarTurma(int opcao)
         {
             InitializeComponent();
 
@@ -25,19 +26,79 @@ namespace aula13_banco
                 cmbModalidade.Items.Add(r["idEstudio_Modalidade"].ToString());
             }
             DAO_Conexao.con.Close();
+
+            if (opcao == 1)
+            {
+                btnAtualizar.Text = "Atualizar";
+            }
+            else
+            {
+                btnAtualizar.Text = "Consultar";
+            }
+            opc = opcao;
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            DAO_Conexao.con.Close();
-            Turma turma1 = new Turma();
-            int idmod = int.Parse(cmbModalidade.Text);
-            MySqlDataReader re = turma1.consultarTurma(idmod);
-            while (re.Read())
+            if (opc == 1)
             {
-                
+                Turma tur1 = new Turma();
+                int idmod = int.Parse(cmbModalidade.SelectedItem.ToString());
+                MessageBox.Show(idmod.ToString());
+                tur1.atualizar(idmod, cmbProfessor.Text, textBox1.Text, textBox2.Text, textBox3.Text);
+                MessageBox.Show("Atualizado com sucesso!");
+
+            }
+
+            else
+            {
+
+                Turma turma1 = new Turma();
+                MySqlDataReader re = turma1.consultarTurma(int.Parse(cmbModalidade.Text));
+                while (re.Read())
+                {
+                    textBox1.Text = re["professorTurma"].ToString();
+                    textBox2.Text = re["diasemanaTurma"].ToString();
+                    textBox3.Text = re["horaTurma"].ToString();
+                }
+
+                DAO_Conexao.con.Close();
             }
 
         }
+
+        private void cmbModalidade_SelectedIndexChanged(object sender, EventArgs e)
+          
+        {
+            if (opc == 1)
+            {
+                Turma turma1 = new Turma();
+                MySqlDataReader re = turma1.consultarTurma(int.Parse(cmbModalidade.Text));
+                while (re.Read())
+                {
+                    cmbProfessor.Text = re["professorTurma"].ToString();
+                    textBox1.Text = re["professorTurma"].ToString();
+                    textBox2.Text = re["diasemanaTurma"].ToString();
+                    textBox3.Text = re["horaTurma"].ToString();
+                  
+                }  
+
+                DAO_Conexao.con.Close();
+                
+              
+            }
+
+           
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+           
+        }
     }
+
 }
+    
+
+    
+

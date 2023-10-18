@@ -65,7 +65,7 @@ namespace aula13_banco
             try
             {
 
-                Modalidade m = new Modalidade();
+                Modalidade m = new Modalidade(txtModalidade.Text);
                 MySqlDataReader r = m.consultarModalidade();
                 while (r.Read())
                 {

@@ -16,17 +16,32 @@ namespace aula13_banco
         public ExcluirTurma()
         {
             InitializeComponent();
+
+
+            WindowState = FormWindowState.Maximized;
+            Modalidade cad = new Modalidade();
+            MySqlDataReader r = cad.consultarTodasModalide();
+            while (r.Read())
+            {
+                cmbModalidade.Items.Add(r["idEstudio_Modalidade"].ToString());
+                
+            }
+            DAO_Conexao.con.Close();
+            Turma tur = new Turma();
+            MySqlDataReader r1 = tur.consultarTodasTurmas();
+            while(r1.Read())
+            {
+                cmbSemana.Items.Add(r1["diasemanaTurma"].ToString());
+                cmbHora.Items.Add(r1["horaTurma"].ToString());
+            }
+     
+            DAO_Conexao.con.Close();
+
         }
 
         private void cmbModalidade_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DAO_Conexao.con.Close();
-            Modalidade modal = new Modalidade(cmbModalidade.Text);
-            MySqlDataReader re = modal.consultarModalidade();
-            while (re.Read())
-            {
-                cmbModalidade.Text = re["idModalidade"].ToString();
-            }
+            
 
         }
 
@@ -34,7 +49,6 @@ namespace aula13_banco
         {
 
             Turma tur = new Turma(cmbModalidade.SelectedIndex);
-            Console.WriteLine("Entrouu");
             if (tur.excluir())
             {
                 MessageBox.Show("excluido com sucesso!");
