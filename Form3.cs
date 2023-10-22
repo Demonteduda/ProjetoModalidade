@@ -91,15 +91,19 @@ namespace aula13_banco
         {
             Aluno aluno = new Aluno(txtCPF.Text);
 
+         /*  if (aluno.verificaCPF())
+           MessageBox.Show("CPF valido!!");
+           else
+            MessageBox.Show("CPF inválido");
+         */
 
             if (e.KeyChar == 13)
-            {
-             
-            
-
+            { 
                 if (aluno.consultarAluno())
                 {
                     MessageBox.Show("Aluno já cadastrado!");
+                    
+                        
                 }
                 else
                 {

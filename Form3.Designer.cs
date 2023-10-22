@@ -219,7 +219,7 @@ namespace aula13_banco
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(270, 20);
             this.txtNome.TabIndex = 7;
-            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
+           // this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // txtCPF
             // 
