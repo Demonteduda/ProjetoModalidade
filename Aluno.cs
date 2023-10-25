@@ -61,7 +61,7 @@ namespace aula13_banco
         }
 
 
-       /* public bool verificaCPF() //string CPF - sem parâmetro
+        public bool verificaCPF() //string CPF - sem parâmetro
         {
             int soma, resto, cont = 0;
             soma = 0;
@@ -102,7 +102,7 @@ namespace aula13_banco
 
             return true;
         }
-       */
+       
 
         public bool cadastrarAluno()
         {

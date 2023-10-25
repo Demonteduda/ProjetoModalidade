@@ -46,7 +46,7 @@ namespace aula13_banco
 
             Console.WriteLine("insert into Estudio_modalidade( descricaoModalidade,precoModalidade, qtdAlunos, qtdAulas) values " +
                "('" + descricao + "','" + preco + "','" + qtd_alunos + "','" + qtd_aulas + "')");
-                MySqlCommand insere = new MySqlCommand("insert into Estudio_modalidade (descricaoModalidade, precoModalidade, qtdAlunos, qtdAulas) values " +
+                MySqlCommand insere = new MySqlCommand("insert into Estudio_modalidade (descricaoModalidade, precoModalidade, qtdAlunos, qtdAulas, ) values " +
                "('" + descricao + "','" + preco + "','" + qtd_alunos + "','" + qtd_aulas + "')", DAO_Conexao.con);
                 insere.ExecuteNonQuery();
                 cadastrar = true;

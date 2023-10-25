@@ -41,12 +41,16 @@ namespace aula13_banco
             this.lblModalidade = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Modalidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblNomeTurma = new System.Windows.Forms.Label();
+            this.txtNomeTur = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtNomeTur);
+            this.groupBox1.Controls.Add(this.lblNomeTurma);
             this.groupBox1.Controls.Add(this.mskdtxtHora);
             this.groupBox1.Controls.Add(this.txtDiaDaSemana);
             this.groupBox1.Controls.Add(this.txtProfessor);
@@ -81,14 +85,14 @@ namespace aula13_banco
             // 
             // txtProfessor
             // 
-            this.txtProfessor.Location = new System.Drawing.Point(132, 103);
+            this.txtProfessor.Location = new System.Drawing.Point(132, 116);
             this.txtProfessor.Name = "txtProfessor";
             this.txtProfessor.Size = new System.Drawing.Size(307, 20);
             this.txtProfessor.TabIndex = 6;
             // 
             // txtModalidade
             // 
-            this.txtModalidade.Location = new System.Drawing.Point(132, 61);
+            this.txtModalidade.Location = new System.Drawing.Point(132, 80);
             this.txtModalidade.Name = "txtModalidade";
             this.txtModalidade.Size = new System.Drawing.Size(307, 20);
             this.txtModalidade.TabIndex = 5;
@@ -125,7 +129,7 @@ namespace aula13_banco
             // lblProfessor
             // 
             this.lblProfessor.AutoSize = true;
-            this.lblProfessor.Location = new System.Drawing.Point(72, 106);
+            this.lblProfessor.Location = new System.Drawing.Point(72, 119);
             this.lblProfessor.Name = "lblProfessor";
             this.lblProfessor.Size = new System.Drawing.Size(54, 13);
             this.lblProfessor.TabIndex = 1;
@@ -134,7 +138,7 @@ namespace aula13_banco
             // lblModalidade
             // 
             this.lblModalidade.AutoSize = true;
-            this.lblModalidade.Location = new System.Drawing.Point(61, 61);
+            this.lblModalidade.Location = new System.Drawing.Point(56, 83);
             this.lblModalidade.Name = "lblModalidade";
             this.lblModalidade.Size = new System.Drawing.Size(65, 13);
             this.lblModalidade.TabIndex = 0;
@@ -155,6 +159,23 @@ namespace aula13_banco
             // 
             this.Modalidade.HeaderText = "Modalidade";
             this.Modalidade.Name = "Modalidade";
+            // 
+            // lblNomeTurma
+            // 
+            this.lblNomeTurma.AutoSize = true;
+            this.lblNomeTurma.Location = new System.Drawing.Point(56, 53);
+            this.lblNomeTurma.Name = "lblNomeTurma";
+            this.lblNomeTurma.Size = new System.Drawing.Size(70, 13);
+            this.lblNomeTurma.TabIndex = 9;
+            this.lblNomeTurma.Text = "Nome turma: ";
+            // 
+            // txtNomeTur
+            // 
+            this.txtNomeTur.Location = new System.Drawing.Point(132, 50);
+            this.txtNomeTur.Name = "txtNomeTur";
+            this.txtNomeTur.Size = new System.Drawing.Size(307, 20);
+            this.txtNomeTur.TabIndex = 10;
+            this.txtNomeTur.TextChanged += new System.EventHandler(this.txtNomeTur_TextChanged);
             // 
             // cadTurma
             // 
@@ -187,5 +208,7 @@ namespace aula13_banco
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Modalidade;
         internal System.Windows.Forms.MaskedTextBox mskdtxtHora;
+        private System.Windows.Forms.TextBox txtNomeTur;
+        private System.Windows.Forms.Label lblNomeTurma;
     }
 }

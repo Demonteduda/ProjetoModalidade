@@ -139,5 +139,12 @@ namespace aula13_banco
             atuTurma1.MdiParent = this;
             atuTurma1.Show();
         }
+
+        private void matricularAlunoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cadMatricula cadmat = new cadMatricula();
+            cadmat.MdiParent = this;
+            cadmat.Show();
+        }
     }
 }

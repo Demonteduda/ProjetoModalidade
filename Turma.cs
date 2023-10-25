@@ -11,20 +11,22 @@ namespace aula13_banco
 {
     class Turma
     {
-        private string professor, dia_semana, hora;
-        private int modalidade, qtde_Alunos, id, del;
+        private string nome, professor, dia_semana, hora;
+        private int modalidade, qtde_Alunos, id;
 
         public Turma(int modalidade)
         {
             this.modalidade = modalidade;
         }
 
-        public Turma(string professor, string dia_semana, string hora, int modalidade)
+        public Turma( string professor, string dia_semana, string hora, int modalidade, string nome)
         {
+        
             this.professor = professor;
             this.dia_semana = dia_semana;
             this.hora = hora;
             this.modalidade = modalidade;
+            this.Nome = nome;
         }
 
         public Turma(string dia_semana, int modalidade)
@@ -33,13 +35,15 @@ namespace aula13_banco
             this.modalidade = modalidade;
         }
 
-        public Turma(string professor, string dia_semana, string hora, int modalidade, int qtde_Alunos)
+        public Turma(string nome,  string professor, string dia_semana, string hora, int modalidade, int qtde_Alunos)
         {
+            this.Nome = nome;
             this.professor = professor;
             this.dia_semana = dia_semana;
             this.hora = hora;
             this.modalidade = modalidade;
             this.Qtde_Alunos = qtde_Alunos;
+
         }
         public Turma()
         {
@@ -52,6 +56,7 @@ namespace aula13_banco
         public int Modalidade { get => modalidade; set => modalidade = value; }
         public int Qtde_Alunos { get => qtde_Alunos; set => qtde_Alunos = value; }
         public int Id { get => id; set => id = value; }
+        public string Nome { get => nome; set => nome = value; }
 
         public bool cadastar()
         {
@@ -61,8 +66,8 @@ namespace aula13_banco
                 DAO_Conexao.con.Open();
 
                 MySqlCommand insere = new MySqlCommand("insert into Estudio_Turma(idModalidade,professorTurma," +
-                    " diaSemanaTurma, horaTurma,alunosmatriculadosTurma) values (" + modalidade + ",'" + professor + "','"
-                    + dia_semana + "','" + hora + "'," + qtde_Alunos + ")", DAO_Conexao.con);
+                    " diaSemanaTurma, horaTurma,alunosmatriculadosTurma, ativa, NomeTurma) values (" + modalidade + ",'" + professor + "','"
+                    + dia_semana + "','" + hora + "'," + qtde_Alunos + ", 0, '" +nome+ "')", DAO_Conexao.con);
                 insere.ExecuteNonQuery();
                 cad = true;
             }
@@ -140,6 +145,8 @@ namespace aula13_banco
 
             return consul;
         }
+
+
 
         public bool excluir()
         {

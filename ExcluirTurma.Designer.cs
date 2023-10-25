@@ -71,6 +71,7 @@ namespace aula13_banco
             this.cmbSemana.Name = "cmbSemana";
             this.cmbSemana.Size = new System.Drawing.Size(209, 21);
             this.cmbSemana.TabIndex = 5;
+            this.cmbSemana.SelectedIndexChanged += new System.EventHandler(this.cmbSemana_SelectedIndexChanged);
             // 
             // cmbModalidade
             // 

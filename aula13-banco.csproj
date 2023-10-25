@@ -62,6 +62,12 @@
     <Compile Include="CadastroMoView.Designer.cs">
       <DependentUpon>CadastroMoView.cs</DependentUpon>
     </Compile>
+    <Compile Include="cadMatricula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cadMatricula.Designer.cs">
+      <DependentUpon>cadMatricula.cs</DependentUpon>
+    </Compile>
     <Compile Include="cadTurma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,7 @@
     <Compile Include="Form7.Designer.cs">
       <DependentUpon>Form7.cs</DependentUpon>
     </Compile>
+    <Compile Include="Matricula.cs" />
     <Compile Include="Modalidade.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CadastroMoView.resx">
       <DependentUpon>CadastroMoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cadMatricula.resx">
+      <DependentUpon>cadMatricula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="cadTurma.resx">
       <DependentUpon>cadTurma.cs</DependentUpon>
