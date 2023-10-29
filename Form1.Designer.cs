@@ -46,14 +46,16 @@ namespace aula13_banco
             this.excluirTurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excluirTurmaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarTurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.matriculaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.matricularAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.excluirAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.matriculaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.matricularAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarMatriculasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -169,30 +171,55 @@ namespace aula13_banco
             // cadastrarTurmaToolStripMenuItem
             // 
             this.cadastrarTurmaToolStripMenuItem.Name = "cadastrarTurmaToolStripMenuItem";
-            this.cadastrarTurmaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadastrarTurmaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.cadastrarTurmaToolStripMenuItem.Text = "Cadastrar Turma";
             this.cadastrarTurmaToolStripMenuItem.Click += new System.EventHandler(this.cadastrarTurmaToolStripMenuItem_Click);
             // 
             // excluirTurmaToolStripMenuItem
             // 
             this.excluirTurmaToolStripMenuItem.Name = "excluirTurmaToolStripMenuItem";
-            this.excluirTurmaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.excluirTurmaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.excluirTurmaToolStripMenuItem.Text = "Atualizar Turma";
             this.excluirTurmaToolStripMenuItem.Click += new System.EventHandler(this.excluirTurmaToolStripMenuItem_Click);
             // 
             // excluirTurmaToolStripMenuItem1
             // 
             this.excluirTurmaToolStripMenuItem1.Name = "excluirTurmaToolStripMenuItem1";
-            this.excluirTurmaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.excluirTurmaToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
             this.excluirTurmaToolStripMenuItem1.Text = "Excluir Turma";
             this.excluirTurmaToolStripMenuItem1.Click += new System.EventHandler(this.excluirTurmaToolStripMenuItem1_Click);
             // 
             // consultarTurmaToolStripMenuItem
             // 
             this.consultarTurmaToolStripMenuItem.Name = "consultarTurmaToolStripMenuItem";
-            this.consultarTurmaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultarTurmaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.consultarTurmaToolStripMenuItem.Text = "Consultar Turma";
             this.consultarTurmaToolStripMenuItem.Click += new System.EventHandler(this.consultarTurmaToolStripMenuItem_Click);
+            // 
+            // matriculaToolStripMenuItem
+            // 
+            this.matriculaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.matricularAlunoToolStripMenuItem,
+            this.excluirAlunoToolStripMenuItem,
+            this.consultarMatriculasToolStripMenuItem});
+            this.matriculaToolStripMenuItem.Name = "matriculaToolStripMenuItem";
+            this.matriculaToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.matriculaToolStripMenuItem.Text = "Matricula";
+            this.matriculaToolStripMenuItem.Click += new System.EventHandler(this.matriculaToolStripMenuItem_Click);
+            // 
+            // matricularAlunoToolStripMenuItem
+            // 
+            this.matricularAlunoToolStripMenuItem.Name = "matricularAlunoToolStripMenuItem";
+            this.matricularAlunoToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.matricularAlunoToolStripMenuItem.Text = "Matricular Aluno";
+            this.matricularAlunoToolStripMenuItem.Click += new System.EventHandler(this.matricularAlunoToolStripMenuItem_Click);
+            // 
+            // excluirAlunoToolStripMenuItem
+            // 
+            this.excluirAlunoToolStripMenuItem.Name = "excluirAlunoToolStripMenuItem";
+            this.excluirAlunoToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.excluirAlunoToolStripMenuItem.Text = "Excluir Aluno";
+            this.excluirAlunoToolStripMenuItem.Click += new System.EventHandler(this.excluirAlunoToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -255,20 +282,12 @@ namespace aula13_banco
             this.label1.TabIndex = 0;
             this.label1.Text = "Login:";
             // 
-            // matriculaToolStripMenuItem
+            // consultarMatriculasToolStripMenuItem
             // 
-            this.matriculaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.matricularAlunoToolStripMenuItem});
-            this.matriculaToolStripMenuItem.Name = "matriculaToolStripMenuItem";
-            this.matriculaToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.matriculaToolStripMenuItem.Text = "Matricula";
-            // 
-            // matricularAlunoToolStripMenuItem
-            // 
-            this.matricularAlunoToolStripMenuItem.Name = "matricularAlunoToolStripMenuItem";
-            this.matricularAlunoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.matricularAlunoToolStripMenuItem.Text = "Matricular Aluno";
-            this.matricularAlunoToolStripMenuItem.Click += new System.EventHandler(this.matricularAlunoToolStripMenuItem_Click);
+            this.consultarMatriculasToolStripMenuItem.Name = "consultarMatriculasToolStripMenuItem";
+            this.consultarMatriculasToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.consultarMatriculasToolStripMenuItem.Text = "Consultar Matriculas";
+            this.consultarMatriculasToolStripMenuItem.Click += new System.EventHandler(this.consultarMatriculasToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -318,6 +337,8 @@ namespace aula13_banco
         private System.Windows.Forms.ToolStripMenuItem consultarTurmaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem matriculaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem matricularAlunoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem excluirAlunoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarMatriculasToolStripMenuItem;
     }
 }
 

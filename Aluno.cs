@@ -60,6 +60,11 @@ namespace aula13_banco
 
         }
 
+        public Aluno (int cpf)
+        {
+            setCPF(cpf.ToString());
+        }
+
 
         public bool verificaCPF() //string CPF - sem parâmetro
         {
@@ -238,13 +243,9 @@ namespace aula13_banco
             return exc;
         }
 
-        public Aluno()
-        {
-
-        }
         public Aluno(string cpf)
         {
-            setCPF(cpf);
+            this.cpf = cpf;
         }
 
         private void setCPF(string cpf)

@@ -17,6 +17,9 @@ namespace aula13_banco
         private string nometur;
         private int max;
         private int contaAlu;
+        private int idTurma;
+        private int cpf;
+
         public cadMatricula()
         {
             try
@@ -38,8 +41,6 @@ namespace aula13_banco
                 txtTurma.Enabled = false;
             }
 
-
-
             catch (Exception ex)
             {
                 MessageBox.Show("Erro no preencher");
@@ -48,8 +49,6 @@ namespace aula13_banco
             {
                 DAO_Conexao.con.Close();
             }
-
-           
 
         }
 
@@ -73,8 +72,28 @@ namespace aula13_banco
 
         private void btnMatricular_Click(object sender, EventArgs e)
         {
+          
+            Aluno al = new Aluno(cpf);
             int cpfAlu = int.Parse(txtCpfAlu.Text);
-            Matricula mat1 = new Matricula();
+            al.verificaCPF();
+
+            Turma tur = new Turma(idTurma);
+            int id = idTurma;
+
+            Matricula mat = new Matricula(id,cpfAlu,nometur);
+            mat.verificaAlunos();
+
+
+
+           
+
+            
+            
+
+
+          
+
+
 
 
         }

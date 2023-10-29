@@ -120,9 +120,9 @@ namespace aula13_banco
             this.Turma.AutoSize = true;
             this.Turma.Location = new System.Drawing.Point(28, 43);
             this.Turma.Name = "Turma";
-            this.Turma.Size = new System.Drawing.Size(65, 13);
+            this.Turma.Size = new System.Drawing.Size(40, 13);
             this.Turma.TabIndex = 0;
-            this.Turma.Text = "Modalidade:";
+            this.Turma.Text = "Turma:";
             // 
             // cadMatricula
             // 

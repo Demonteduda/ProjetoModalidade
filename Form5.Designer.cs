@@ -43,7 +43,7 @@ namespace aula13_banco
             this.groupBox1.Controls.Add(this.btnExluir);
             this.groupBox1.Location = new System.Drawing.Point(161, 74);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(450, 248);
+            this.groupBox1.Size = new System.Drawing.Size(295, 189);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Excluir Modalidade";
@@ -68,9 +68,9 @@ namespace aula13_banco
             // 
             // btnExluir
             // 
-            this.btnExluir.Location = new System.Drawing.Point(140, 146);
+            this.btnExluir.Location = new System.Drawing.Point(111, 121);
             this.btnExluir.Name = "btnExluir";
-            this.btnExluir.Size = new System.Drawing.Size(177, 40);
+            this.btnExluir.Size = new System.Drawing.Size(113, 40);
             this.btnExluir.TabIndex = 1;
             this.btnExluir.Text = "Excluir";
             this.btnExluir.UseVisualStyleBackColor = true;

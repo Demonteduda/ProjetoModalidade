@@ -81,6 +81,11 @@ namespace aula13_banco
             return consul;
         }
         
+        public int AlunosQuant(int qtd_alunos)
+        {
+            return qtd_alunos;  
+
+        }
            public bool atualizarModalidade( string desc1, decimal preco1, int qtd_alunos1, int qtd_aulas1)
         {
             bool atu = false;

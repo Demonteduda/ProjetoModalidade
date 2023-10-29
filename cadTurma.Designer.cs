@@ -30,6 +30,8 @@ namespace aula13_banco
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNomeTur = new System.Windows.Forms.TextBox();
+            this.lblNomeTurma = new System.Windows.Forms.Label();
             this.mskdtxtHora = new System.Windows.Forms.MaskedTextBox();
             this.txtDiaDaSemana = new System.Windows.Forms.TextBox();
             this.txtProfessor = new System.Windows.Forms.TextBox();
@@ -41,14 +43,16 @@ namespace aula13_banco
             this.lblModalidade = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Modalidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblNomeTurma = new System.Windows.Forms.Label();
-            this.txtNomeTur = new System.Windows.Forms.TextBox();
+            this.lblqtdAlunos = new System.Windows.Forms.Label();
+            this.txtQtdAlunos = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtQtdAlunos);
+            this.groupBox1.Controls.Add(this.lblqtdAlunos);
             this.groupBox1.Controls.Add(this.txtNomeTur);
             this.groupBox1.Controls.Add(this.lblNomeTurma);
             this.groupBox1.Controls.Add(this.mskdtxtHora);
@@ -66,6 +70,23 @@ namespace aula13_banco
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Turma";
+            // 
+            // txtNomeTur
+            // 
+            this.txtNomeTur.Location = new System.Drawing.Point(132, 50);
+            this.txtNomeTur.Name = "txtNomeTur";
+            this.txtNomeTur.Size = new System.Drawing.Size(307, 20);
+            this.txtNomeTur.TabIndex = 10;
+            this.txtNomeTur.TextChanged += new System.EventHandler(this.txtNomeTur_TextChanged);
+            // 
+            // lblNomeTurma
+            // 
+            this.lblNomeTurma.AutoSize = true;
+            this.lblNomeTurma.Location = new System.Drawing.Point(56, 53);
+            this.lblNomeTurma.Name = "lblNomeTurma";
+            this.lblNomeTurma.Size = new System.Drawing.Size(70, 13);
+            this.lblNomeTurma.TabIndex = 9;
+            this.lblNomeTurma.Text = "Nome turma: ";
             // 
             // mskdtxtHora
             // 
@@ -160,22 +181,21 @@ namespace aula13_banco
             this.Modalidade.HeaderText = "Modalidade";
             this.Modalidade.Name = "Modalidade";
             // 
-            // lblNomeTurma
+            // lblqtdAlunos
             // 
-            this.lblNomeTurma.AutoSize = true;
-            this.lblNomeTurma.Location = new System.Drawing.Point(56, 53);
-            this.lblNomeTurma.Name = "lblNomeTurma";
-            this.lblNomeTurma.Size = new System.Drawing.Size(70, 13);
-            this.lblNomeTurma.TabIndex = 9;
-            this.lblNomeTurma.Text = "Nome turma: ";
+            this.lblqtdAlunos.AutoSize = true;
+            this.lblqtdAlunos.Location = new System.Drawing.Point(253, 210);
+            this.lblqtdAlunos.Name = "lblqtdAlunos";
+            this.lblqtdAlunos.Size = new System.Drawing.Size(115, 13);
+            this.lblqtdAlunos.TabIndex = 11;
+            this.lblqtdAlunos.Text = "Quantidade de Alunos:";
             // 
-            // txtNomeTur
+            // txtQtdAlunos
             // 
-            this.txtNomeTur.Location = new System.Drawing.Point(132, 50);
-            this.txtNomeTur.Name = "txtNomeTur";
-            this.txtNomeTur.Size = new System.Drawing.Size(307, 20);
-            this.txtNomeTur.TabIndex = 10;
-            this.txtNomeTur.TextChanged += new System.EventHandler(this.txtNomeTur_TextChanged);
+            this.txtQtdAlunos.Location = new System.Drawing.Point(374, 206);
+            this.txtQtdAlunos.Name = "txtQtdAlunos";
+            this.txtQtdAlunos.Size = new System.Drawing.Size(65, 20);
+            this.txtQtdAlunos.TabIndex = 12;
             // 
             // cadTurma
             // 
@@ -210,5 +230,7 @@ namespace aula13_banco
         internal System.Windows.Forms.MaskedTextBox mskdtxtHora;
         private System.Windows.Forms.TextBox txtNomeTur;
         private System.Windows.Forms.Label lblNomeTurma;
+        private System.Windows.Forms.TextBox txtQtdAlunos;
+        private System.Windows.Forms.Label lblqtdAlunos;
     }
 }

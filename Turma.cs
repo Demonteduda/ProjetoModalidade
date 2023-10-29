@@ -19,7 +19,7 @@ namespace aula13_banco
             this.modalidade = modalidade;
         }
 
-        public Turma( string professor, string dia_semana, string hora, int modalidade, string nome)
+        public Turma( string professor, string dia_semana, string hora, int modalidade, string nome, int qtde_Alunos)
         {
         
             this.professor = professor;
@@ -27,6 +27,7 @@ namespace aula13_banco
             this.hora = hora;
             this.modalidade = modalidade;
             this.Nome = nome;
+            this.Qtde_Alunos = qtde_Alunos;
         }
 
         public Turma(string dia_semana, int modalidade)
@@ -35,19 +36,23 @@ namespace aula13_banco
             this.modalidade = modalidade;
         }
 
-        public Turma(string nome,  string professor, string dia_semana, string hora, int modalidade, int qtde_Alunos)
+        public Turma(string nome,  string professor, string dia_semana, string hora, int modalidade)
         {
             this.Nome = nome;
             this.professor = professor;
             this.dia_semana = dia_semana;
             this.hora = hora;
             this.modalidade = modalidade;
-            this.Qtde_Alunos = qtde_Alunos;
-
+         
         }
         public Turma()
         {
 
+        }
+
+        public int qtdAlunos(int qtd)
+        {
+            return qtd;
         }
 
         public string Professor { get => professor; set => professor = value; }

@@ -60,8 +60,9 @@ namespace aula13_banco
             string dia_semana = txtDiaDaSemana.Text;
             string hora = mskdtxtHora.Text;
             string prof = txtProfessor.Text;
+            int qtd = int.Parse(txtQtdAlunos.Text);
             int modalidade=0;
-            //int qtde = int.Parse(txtQtdeAluno.Text);
+
             try
             {
 
@@ -75,7 +76,7 @@ namespace aula13_banco
 
                 DAO_Conexao.con.Close();
                 MessageBox.Show(modalidade.ToString());
-                Turma t = new Turma(prof, dia_semana, hora, modalidade, nometur);
+                Turma t = new Turma(prof, dia_semana, hora, modalidade, nometur,qtd);
 
                 if (t.cadastar())
                 {
@@ -90,8 +91,8 @@ namespace aula13_banco
                 txtProfessor.Text = "";
                 txtModalidade.Text = "";
                 txtNomeTur.Text = "";
-                //txtQtdeAluno.Text = "";
-
+                txtQtdAlunos.Text = "";
+         
 
             }
             catch (Exception ex)

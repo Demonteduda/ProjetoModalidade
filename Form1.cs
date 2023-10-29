@@ -146,5 +146,25 @@ namespace aula13_banco
             cadmat.MdiParent = this;
             cadmat.Show();
         }
+
+        private void excluirAlunoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExMatricula exmat = new ExMatricula();
+            exmat.MdiParent = this;
+            exmat.Show();
+            
+        }
+
+        private void matriculaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void consultarMatriculasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form8 f8 = new Form8();
+            f8.MdiParent = this;
+            f8.Show();
+        }
     }
 }
