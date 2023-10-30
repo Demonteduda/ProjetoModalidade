@@ -61,6 +61,20 @@ namespace aula13_banco
 
         }
 
+   /*     public int consultarIdModalidade()
+        {
+            MySqlDataReader resul = null;
+            int id = 0;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand retorno = new MySqlCommand("SELECT DISTINCT * FROM Estudio_Matricula INNER JOIN Estudio_turma ON " +
+                    "Estudio_Turma.idEstudio_Turma = Estudio_Matricula.idEstudioTurma,  ")
+
+            }
+        }
+   */
+
         public void verificaAlunos()
         {
             Modalidade md = new Modalidade();
@@ -80,7 +94,7 @@ namespace aula13_banco
             {
                 DAO_Conexao.con.Open();
                 MySqlCommand exclui = new MySqlCommand("delete from Estudio_Matricula" +
-             " where cpfAlu = '" + cpfalu + "'", DAO_Conexao.con);
+           " where cpfAlu = '" + cpfalu + "'", DAO_Conexao.con);
                 exclui.ExecuteNonQuery();
                 exc = true;
             }

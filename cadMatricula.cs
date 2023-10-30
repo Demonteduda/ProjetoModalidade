@@ -15,10 +15,10 @@ namespace aula13_banco
     {
 
         private string nometur;
-        private int max;
+        private string qtmax;
         private int contaAlu;
-        private int idTurma;
-        private int cpf;
+        private string idTurma;
+        private string idMod;
 
         public cadMatricula()
         {
@@ -72,30 +72,77 @@ namespace aula13_banco
 
         private void btnMatricular_Click(object sender, EventArgs e)
         {
-          
-            Aluno al = new Aluno(cpf);
+           
+            try
+            {
+                Turma con_Tur = new Turma();
+                MySqlDataReader r = con_Tur.consultarTodasTurmas();
+
+                while (r.Read())
+                {
+                    int a = int.Parse(r["ativa"].ToString());
+                    if (a == 0)
+                    {
+                        idTurma = (r["idEstudio_Turma"].ToString());
+                        idMod = (r["idModalidade"].ToString());
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro no preencher");
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+
+
+ int idmoda = int.Parse(idMod);
+
+
+            try
+            {
+                Modalidade modali = new Modalidade();
+                MySqlDataReader r1 = modali.consultarQtd(idmoda);
+
+                while (r1.Read())
+                {
+
+                    qtmax = (r1["qtdAlunos"].ToString());
+                    
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro no preencher");
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+
+            int id = int.Parse(idTurma);
+
+            int qtdmax = int.Parse(qtmax);
+
             int cpfAlu = int.Parse(txtCpfAlu.Text);
+            Aluno al = new Aluno(cpfAlu);
             al.verificaCPF();
 
-            Turma tur = new Turma(idTurma);
-            int id = idTurma;
+            
 
+            Modalidade mod1 = new Modalidade();
             Matricula mat = new Matricula(id,cpfAlu,nometur);
+
             mat.verificaAlunos();
 
-
-
-           
-
-            
-            
-
-
-          
-
-
-
-
         }
+
+
+
+        
     }
 }

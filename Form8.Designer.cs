@@ -30,17 +30,17 @@ namespace aula13_banco
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblSelecioneTurma = new System.Windows.Forms.Label();
-            this.cmbTurma = new System.Windows.Forms.ComboBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtQtdAlu = new System.Windows.Forms.TextBox();
-            this.txtHora = new System.Windows.Forms.TextBox();
-            this.txtDiaSemana = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnConsultarMatricula = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtDiaSemana = new System.Windows.Forms.TextBox();
+            this.txtHora = new System.Windows.Forms.TextBox();
+            this.txtQtdAlu = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.cmbTurma = new System.Windows.Forms.ComboBox();
+            this.lblSelecioneTurma = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,78 +64,15 @@ namespace aula13_banco
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Consultar Matriculas";
             // 
-            // lblSelecioneTurma
+            // btnConsultarMatricula
             // 
-            this.lblSelecioneTurma.AutoSize = true;
-            this.lblSelecioneTurma.Location = new System.Drawing.Point(28, 60);
-            this.lblSelecioneTurma.Name = "lblSelecioneTurma";
-            this.lblSelecioneTurma.Size = new System.Drawing.Size(110, 13);
-            this.lblSelecioneTurma.TabIndex = 0;
-            this.lblSelecioneTurma.Text = "Selecione sua Turma:";
-            // 
-            // cmbTurma
-            // 
-            this.cmbTurma.FormattingEnabled = true;
-            this.cmbTurma.Location = new System.Drawing.Point(163, 57);
-            this.cmbTurma.Name = "cmbTurma";
-            this.cmbTurma.Size = new System.Drawing.Size(121, 21);
-            this.cmbTurma.TabIndex = 1;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(317, 57);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(234, 225);
-            this.listBox1.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 165);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Dia da Semana:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 214);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Hora:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 117);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Quantidade de Alunos:";
-            // 
-            // txtQtdAlu
-            // 
-            this.txtQtdAlu.Location = new System.Drawing.Point(163, 114);
-            this.txtQtdAlu.Name = "txtQtdAlu";
-            this.txtQtdAlu.Size = new System.Drawing.Size(100, 20);
-            this.txtQtdAlu.TabIndex = 6;
-            // 
-            // txtHora
-            // 
-            this.txtHora.Location = new System.Drawing.Point(67, 211);
-            this.txtHora.Name = "txtHora";
-            this.txtHora.Size = new System.Drawing.Size(100, 20);
-            this.txtHora.TabIndex = 7;
-            // 
-            // txtDiaSemana
-            // 
-            this.txtDiaSemana.Location = new System.Drawing.Point(133, 165);
-            this.txtDiaSemana.Name = "txtDiaSemana";
-            this.txtDiaSemana.Size = new System.Drawing.Size(100, 20);
-            this.txtDiaSemana.TabIndex = 8;
+            this.btnConsultarMatricula.Location = new System.Drawing.Point(121, 250);
+            this.btnConsultarMatricula.Name = "btnConsultarMatricula";
+            this.btnConsultarMatricula.Size = new System.Drawing.Size(96, 32);
+            this.btnConsultarMatricula.TabIndex = 10;
+            this.btnConsultarMatricula.Text = "Consultar";
+            this.btnConsultarMatricula.UseVisualStyleBackColor = true;
+            this.btnConsultarMatricula.Click += new System.EventHandler(this.btnConsultarMatricula_Click);
             // 
             // label4
             // 
@@ -146,15 +83,78 @@ namespace aula13_banco
             this.label4.TabIndex = 9;
             this.label4.Text = "Nome dos Alunos:";
             // 
-            // btnConsultarMatricula
+            // txtDiaSemana
             // 
-            this.btnConsultarMatricula.Location = new System.Drawing.Point(121, 250);
-            this.btnConsultarMatricula.Name = "btnConsultarMatricula";
-            this.btnConsultarMatricula.Size = new System.Drawing.Size(96, 32);
-            this.btnConsultarMatricula.TabIndex = 10;
-            this.btnConsultarMatricula.Text = "Consultar";
-            this.btnConsultarMatricula.UseVisualStyleBackColor = true;
-            this.btnConsultarMatricula.Click += new System.EventHandler(this.btnConsultarMatricula_Click);
+            this.txtDiaSemana.Location = new System.Drawing.Point(133, 165);
+            this.txtDiaSemana.Name = "txtDiaSemana";
+            this.txtDiaSemana.Size = new System.Drawing.Size(100, 20);
+            this.txtDiaSemana.TabIndex = 8;
+            // 
+            // txtHora
+            // 
+            this.txtHora.Location = new System.Drawing.Point(67, 211);
+            this.txtHora.Name = "txtHora";
+            this.txtHora.Size = new System.Drawing.Size(100, 20);
+            this.txtHora.TabIndex = 7;
+            // 
+            // txtQtdAlu
+            // 
+            this.txtQtdAlu.Location = new System.Drawing.Point(163, 114);
+            this.txtQtdAlu.Name = "txtQtdAlu";
+            this.txtQtdAlu.Size = new System.Drawing.Size(100, 20);
+            this.txtQtdAlu.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(28, 117);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Quantidade de Alunos:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(28, 214);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Hora:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(28, 165);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Dia da Semana:";
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(318, 57);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(234, 225);
+            this.listBox1.TabIndex = 2;
+            // 
+            // cmbTurma
+            // 
+            this.cmbTurma.FormattingEnabled = true;
+            this.cmbTurma.Location = new System.Drawing.Point(163, 57);
+            this.cmbTurma.Name = "cmbTurma";
+            this.cmbTurma.Size = new System.Drawing.Size(121, 21);
+            this.cmbTurma.TabIndex = 1;
+            // 
+            // lblSelecioneTurma
+            // 
+            this.lblSelecioneTurma.AutoSize = true;
+            this.lblSelecioneTurma.Location = new System.Drawing.Point(28, 60);
+            this.lblSelecioneTurma.Name = "lblSelecioneTurma";
+            this.lblSelecioneTurma.Size = new System.Drawing.Size(110, 13);
+            this.lblSelecioneTurma.TabIndex = 0;
+            this.lblSelecioneTurma.Text = "Selecione sua Turma:";
             // 
             // Form8
             // 

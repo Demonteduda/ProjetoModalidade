@@ -62,6 +62,25 @@ namespace aula13_banco
             return cadastrar;
         }
 
+        public MySqlDataReader consultarQtd(int idmod)
+        {
+            MySqlDataReader consul = null;
+
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT qtdAlunos FROM Estudio_modalidade WHERE idEstudio_Modalidade = '" + idmod + "'", DAO_Conexao.con);
+                Console.WriteLine("SELECT qtdAlunos FROM Estudio_modalidade WHERE idEstudio_Modalidade = '" + idmod + "'");
+                consul = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return consul;
+        }
+
         public MySqlDataReader consultarModalidade()
         {
             MySqlDataReader consul = null;
