@@ -34,10 +34,10 @@ namespace aula13_banco
             this.btnMatricular = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtCpfAlu = new System.Windows.Forms.TextBox();
             this.txtTurma = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Turma = new System.Windows.Forms.Label();
+            this.mktCpf = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -81,7 +81,7 @@ namespace aula13_banco
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtCpfAlu);
+            this.groupBox2.Controls.Add(this.mktCpf);
             this.groupBox2.Controls.Add(this.txtTurma);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.Turma);
@@ -91,13 +91,6 @@ namespace aula13_banco
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Matricular Aluno:";
-            // 
-            // txtCpfAlu
-            // 
-            this.txtCpfAlu.Location = new System.Drawing.Point(99, 77);
-            this.txtCpfAlu.Name = "txtCpfAlu";
-            this.txtCpfAlu.Size = new System.Drawing.Size(198, 20);
-            this.txtCpfAlu.TabIndex = 4;
             // 
             // txtTurma
             // 
@@ -124,6 +117,14 @@ namespace aula13_banco
             this.Turma.TabIndex = 0;
             this.Turma.Text = "Turma:";
             // 
+            // mktCpf
+            // 
+            this.mktCpf.Location = new System.Drawing.Point(99, 80);
+            this.mktCpf.Mask = "000-000-000-00";
+            this.mktCpf.Name = "mktCpf";
+            this.mktCpf.Size = new System.Drawing.Size(198, 20);
+            this.mktCpf.TabIndex = 5;
+            // 
             // cadMatricula
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,10 +149,10 @@ namespace aula13_banco
         private System.Windows.Forms.Button btnMatricular;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtCpfAlu;
         private System.Windows.Forms.TextBox txtTurma;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label Turma;
         private System.Windows.Forms.DataGridViewTextBoxColumn Turma1;
+        private System.Windows.Forms.MaskedTextBox mktCpf;
     }
 }

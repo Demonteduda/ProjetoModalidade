@@ -30,17 +30,15 @@ namespace aula13_banco
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblProfcombo = new System.Windows.Forms.Label();
+            this.cmbProfessor = new System.Windows.Forms.ComboBox();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblModali = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
             this.lblDiaSemana = new System.Windows.Forms.Label();
-            this.lblProfessor = new System.Windows.Forms.Label();
             this.cmbModalidade = new System.Windows.Forms.ComboBox();
-            this.cmbProfessor = new System.Windows.Forms.ComboBox();
-            this.lblProfcombo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,11 +49,9 @@ namespace aula13_banco
             this.groupBox1.Controls.Add(this.btnAtualizar);
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.lblModali);
             this.groupBox1.Controls.Add(this.lblHora);
             this.groupBox1.Controls.Add(this.lblDiaSemana);
-            this.groupBox1.Controls.Add(this.lblProfessor);
             this.groupBox1.Controls.Add(this.cmbModalidade);
             this.groupBox1.Location = new System.Drawing.Point(111, 50);
             this.groupBox1.Name = "groupBox1";
@@ -63,6 +59,23 @@ namespace aula13_banco
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Atualizar";
+            // 
+            // lblProfcombo
+            // 
+            this.lblProfcombo.AutoSize = true;
+            this.lblProfcombo.Location = new System.Drawing.Point(22, 75);
+            this.lblProfcombo.Name = "lblProfcombo";
+            this.lblProfcombo.Size = new System.Drawing.Size(127, 13);
+            this.lblProfcombo.TabIndex = 10;
+            this.lblProfcombo.Text = "Professor da Modalidade:";
+            // 
+            // cmbProfessor
+            // 
+            this.cmbProfessor.FormattingEnabled = true;
+            this.cmbProfessor.Location = new System.Drawing.Point(155, 72);
+            this.cmbProfessor.Name = "cmbProfessor";
+            this.cmbProfessor.Size = new System.Drawing.Size(277, 21);
+            this.cmbProfessor.TabIndex = 9;
             // 
             // btnAtualizar
             // 
@@ -76,24 +89,17 @@ namespace aula13_banco
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(155, 172);
+            this.textBox3.Location = new System.Drawing.Point(155, 168);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(277, 20);
             this.textBox3.TabIndex = 7;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(155, 136);
+            this.textBox2.Location = new System.Drawing.Point(155, 119);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(277, 20);
             this.textBox2.TabIndex = 6;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(155, 99);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(277, 20);
-            this.textBox1.TabIndex = 5;
             // 
             // lblModali
             // 
@@ -116,20 +122,11 @@ namespace aula13_banco
             // lblDiaSemana
             // 
             this.lblDiaSemana.AutoSize = true;
-            this.lblDiaSemana.Location = new System.Drawing.Point(68, 139);
+            this.lblDiaSemana.Location = new System.Drawing.Point(68, 126);
             this.lblDiaSemana.Name = "lblDiaSemana";
             this.lblDiaSemana.Size = new System.Drawing.Size(81, 13);
             this.lblDiaSemana.TabIndex = 2;
             this.lblDiaSemana.Text = "Dia da semana:";
-            // 
-            // lblProfessor
-            // 
-            this.lblProfessor.AutoSize = true;
-            this.lblProfessor.Location = new System.Drawing.Point(95, 102);
-            this.lblProfessor.Name = "lblProfessor";
-            this.lblProfessor.Size = new System.Drawing.Size(54, 13);
-            this.lblProfessor.TabIndex = 1;
-            this.lblProfessor.Text = "Professor:";
             // 
             // cmbModalidade
             // 
@@ -139,23 +136,6 @@ namespace aula13_banco
             this.cmbModalidade.Size = new System.Drawing.Size(277, 21);
             this.cmbModalidade.TabIndex = 0;
             this.cmbModalidade.SelectedIndexChanged += new System.EventHandler(this.cmbModalidade_SelectedIndexChanged);
-            // 
-            // cmbProfessor
-            // 
-            this.cmbProfessor.FormattingEnabled = true;
-            this.cmbProfessor.Location = new System.Drawing.Point(155, 72);
-            this.cmbProfessor.Name = "cmbProfessor";
-            this.cmbProfessor.Size = new System.Drawing.Size(277, 21);
-            this.cmbProfessor.TabIndex = 9;
-            // 
-            // lblProfcombo
-            // 
-            this.lblProfcombo.AutoSize = true;
-            this.lblProfcombo.Location = new System.Drawing.Point(22, 75);
-            this.lblProfcombo.Name = "lblProfcombo";
-            this.lblProfcombo.Size = new System.Drawing.Size(127, 13);
-            this.lblProfcombo.TabIndex = 10;
-            this.lblProfcombo.Text = "Professor da Modalidade:";
             // 
             // AtualizarTurma
             // 
@@ -175,14 +155,12 @@ namespace aula13_banco
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblDiaSemana;
-        private System.Windows.Forms.Label lblProfessor;
         private System.Windows.Forms.ComboBox cmbModalidade;
         private System.Windows.Forms.Label lblModali;
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblProfcombo;
         private System.Windows.Forms.ComboBox cmbProfessor;
     }

@@ -20,14 +20,20 @@ namespace aula13_banco
 
         private void btnConsultarMatricula_Click(object sender, EventArgs e)
         {
-            Matricula m1 = new Matricula(cmbTurma.SelectedIndex);
+            
+            Matricula m1 = new Matricula(cmbTurma.Text);
             MySqlDataReader re = m1.consultarMatricula();
             while (re.Read())
             {
                 txtQtdAlu.Text= re["alunosmatriculadosTurma"].ToString();
                 txtDiaSemana.Text = re["diasemanaTurma"].ToString();
                 txtHora.Text = re["horaTurma"].ToString();
+                listBox1.Items.Add(m1.NomeTur);
+                listBox1.Items.Add(m1.Cpfalu);
             }
+           
+
+            
         }
     }
 }

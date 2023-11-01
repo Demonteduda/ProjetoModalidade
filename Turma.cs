@@ -111,13 +111,13 @@ namespace aula13_banco
         }
 
 
-        public bool atualizar(int mod, string profmod, string prof, string diase, string hor)
+        public bool atualizar(int mod, string profmod, string diase, string hor)
         {
             bool updated = false;
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand update = new MySqlCommand("update Estudio_Turma set professorTurma='" + professor + "', diasemanaTurma='" + diase+  "', horaTurma='" + hora + "' where idModalidade=" + mod + " and professorTurma= '"+profmod+"'", DAO_Conexao.con);
+                MySqlCommand update = new MySqlCommand("update Estudio_Turma setdiasemanaTurma='" + diase+  "', horaTurma='" + hora + "' where idModalidade=" + mod + " and professorTurma= '"+profmod+"'", DAO_Conexao.con);
                 update.ExecuteNonQuery();
                 updated = true;
             }

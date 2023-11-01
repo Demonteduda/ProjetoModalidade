@@ -17,24 +17,28 @@ namespace aula13_banco
         private int codigoID;
 
 
-        public Modalidade( string descricao, decimal preco, int qtd_alunos, int qtd_aulas )
+        public Modalidade( string descricao1, decimal preco, int qtd_alunos, int qtd_aulas )
         {  
-            this.descricao = descricao;
+            this.descricao = descricao1;
             this.preco = preco;
             this.qtd_alunos = qtd_alunos;
             this.qtd_aulas = qtd_aulas;
          
         }
 
+        public Modalidade()
+        {
+
+        }
         public Modalidade (string desc)
         {
             this.descricao = desc;
         }
 
       
-        public Modalidade()
+        public Modalidade(int idmod)
         {
-
+            this.codigoID = idmod;
          }
 
 
@@ -81,6 +85,7 @@ namespace aula13_banco
             return consul;
         }
 
+    
         public MySqlDataReader consultarModalidade()
         {
             MySqlDataReader consul = null;

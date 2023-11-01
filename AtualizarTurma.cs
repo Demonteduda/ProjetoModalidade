@@ -45,7 +45,7 @@ namespace aula13_banco
                 Turma tur1 = new Turma();
                 int idmod = int.Parse(cmbModalidade.SelectedItem.ToString());
                 MessageBox.Show(idmod.ToString());
-                tur1.atualizar(idmod, cmbProfessor.Text, textBox1.Text, textBox2.Text, textBox3.Text);
+                tur1.atualizar(idmod, cmbProfessor.Text, textBox2.Text, textBox3.Text);
                 MessageBox.Show("Atualizado com sucesso!");
 
             }
@@ -57,7 +57,6 @@ namespace aula13_banco
                 MySqlDataReader re = turma1.consultarTurma(int.Parse(cmbModalidade.Text));
                 while (re.Read())
                 {
-                    textBox1.Text = re["professorTurma"].ToString();
                     textBox2.Text = re["diasemanaTurma"].ToString();
                     textBox3.Text = re["horaTurma"].ToString();
                 }
@@ -77,7 +76,6 @@ namespace aula13_banco
                 while (re.Read())
                 {
                     cmbProfessor.Text = re["professorTurma"].ToString();
-                    textBox1.Text = re["professorTurma"].ToString();
                     textBox2.Text = re["diasemanaTurma"].ToString();
                     textBox3.Text = re["horaTurma"].ToString();
                   

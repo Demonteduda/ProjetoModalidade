@@ -11,31 +11,29 @@ namespace aula13_banco
     {
 
         private int idTurma;//Turma
-        private int cpfalu;
+        private string cpfalu;
         private string nomeTur;
-        private int cpf;
         private int qtd1;
         private int qtd2;
        
-        public Matricula(int idTurma, int cpfalu, string nomeTur)
+        public Matricula(int idTurma, string cpfalu, string nomeTur)
         {
             IdTurma = idTurma;
-            Cpfalu = cpfalu;
             NomeTur = nomeTur;
+            Cpfalu = cpfalu;
             
         }
 
-        public Matricula(int cpfalu)
+        public Matricula(string cpfalu)
         {
             Cpfalu = cpfalu;
         }
 
         public int IdTurma { get => idTurma; set => idTurma = value; }
-        public int Cpfalu { get => cpfalu; set => cpfalu = value; }
         public string NomeTur { get => nomeTur; set => nomeTur = value; }
+        public string Cpfalu { get => cpfalu; set => cpfalu = value; }
 
-
-        public bool cadMatricula(int cpfalu, int idTurma, string nomeTur)
+        public bool cadMatricula()
         {
 
             bool cad = false;
@@ -44,7 +42,7 @@ namespace aula13_banco
                 DAO_Conexao.con.Open();
 
                 MySqlCommand insere = new MySqlCommand("insert into Estudio_Matricula (cpfAlu, idTurma, NomeTurma) values " +
-               "('" + cpfalu + "','" + idTurma + "','" + nomeTur + "',)", DAO_Conexao.con);
+               "('" + Cpfalu + "','" + idTurma + "','" + nomeTur + "',)", DAO_Conexao.con);
                 insere.ExecuteNonQuery();
                 cad = true;
             }
@@ -61,6 +59,8 @@ namespace aula13_banco
 
         }
 
+
+
    /*     public int consultarIdModalidade()
         {
             MySqlDataReader resul = null;
@@ -75,16 +75,22 @@ namespace aula13_banco
         }
    */
 
-        public void verificaAlunos()
+        public int verificaAlunos(int idmod, int idtur)
         {
-            Modalidade md = new Modalidade();
+            int resul=0;
+            Modalidade md = new Modalidade(idmod);
             md.AlunosQuant(qtd2);
 
-            Turma tur1 = new Turma();
+            Turma tur1 = new Turma(idTurma);
             tur1.qtdAlunos(qtd1);
 
             if (qtd1 > qtd2)
-            Console.WriteLine("Quantidade maior de alunos");    
+            {
+  Console.WriteLine("Quantidade menor de alunos");
+              resul = 1;
+            }
+
+            return resul;
         }
 
         public bool excluirMatricula()
@@ -94,7 +100,7 @@ namespace aula13_banco
             {
                 DAO_Conexao.con.Open();
                 MySqlCommand exclui = new MySqlCommand("delete from Estudio_Matricula" +
-           " where cpfAlu = '" + cpfalu + "'", DAO_Conexao.con);
+           " where cpfAlu = '" + Cpfalu + "'", DAO_Conexao.con);
                 exclui.ExecuteNonQuery();
                 exc = true;
             }
@@ -109,6 +115,10 @@ namespace aula13_banco
             return exc;
         }
 
+
+        //   select* from Estudio_Aluno inner join Estudio_Matricula on Estudio_Aluno.CPFAluno = Estudio_Matricula.cpf_Aluno where Estudio_Matricula.id_Turma= '
+
+
         public MySqlDataReader consultarMatricula()
         {
             MySqlDataReader consul = null;
@@ -116,7 +126,7 @@ namespace aula13_banco
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudio_ WHERE NomeTurma = '" + nomeTur + "'", DAO_Conexao.con);
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudo_Aluno inner join Estudio_Matricula on Estudo_Aluno.CPFAaluno where Estudio_Matricula.idTurma= '"+idTurma+"'", DAO_Conexao.con);
                
                 consul = consulta.ExecuteReader();
             }

@@ -15,8 +15,6 @@ namespace aula13_banco
     {
 
         private string nometur;
-        private string qtmax;
-        private int contaAlu;
         private string idTurma;
         private string idMod;
 
@@ -99,45 +97,32 @@ namespace aula13_banco
             }
 
 
- int idmoda = int.Parse(idMod);
-
-
-            try
-            {
-                Modalidade modali = new Modalidade();
-                MySqlDataReader r1 = modali.consultarQtd(idmoda);
-
-                while (r1.Read())
-                {
-
-                    qtmax = (r1["qtdAlunos"].ToString());
-                    
-                }
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro no preencher");
-            }
-            finally
-            {
-                DAO_Conexao.con.Close();
-            }
+            int idmoda = int.Parse(idMod);
 
             int id = int.Parse(idTurma);
 
-            int qtdmax = int.Parse(qtmax);
-
-            int cpfAlu = int.Parse(txtCpfAlu.Text);
-            Aluno al = new Aluno(cpfAlu);
-            al.verificaCPF();
 
             
+             Aluno al = new Aluno(mktCpf.Text);
+           
 
-            Modalidade mod1 = new Modalidade();
-            Matricula mat = new Matricula(id,cpfAlu,nometur);
+            Matricula mat = new Matricula(id,mktCpf.Text,nometur);
 
-            mat.verificaAlunos();
+            if(mat.verificaAlunos(idmoda, id)==1)
+            {
+                if (al.verificaCPF())
+                {
+                    mat.cadMatricula();
+                    Console.WriteLine("ALuno cadastrado na turma!");
+                }
+                else
+                {
+                    Console.WriteLine("Aluno não cadastrado!");
+
+                }
+            }
+
+            
 
         }
 

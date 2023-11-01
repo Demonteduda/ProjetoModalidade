@@ -24,7 +24,7 @@ namespace aula13_banco
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Matricula mat = new Matricula(txtcpfAluno.Text.Length);
+            Matricula mat = new Matricula(txtcpfAluno.Text);
 
             if (mat.excluirMatricula())
             MessageBox.Show("Matricula excluida com sucesso!!");

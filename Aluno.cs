@@ -21,10 +21,11 @@ namespace aula13_banco
         private string telefone;
         private string email;
         private bool Ativo;
-
+        private byte[] foto;
+        private byte[] foto1;
 
         public Aluno(string cpf, string nome, string rua, String numero, String bairro, string complemento, string cep, string cidade,
-       string estado, string telefone, string email)
+       string estado, string telefone, string email, byte[]foto)
         {
 
             setCPF(cpf);
@@ -39,6 +40,7 @@ namespace aula13_banco
             setTelefone(telefone);
             setEmail(email);
             setAtivo(Ativo);
+            setFoto(foto);
 
         }
 
@@ -59,6 +61,8 @@ namespace aula13_banco
             setAtivo(Ativo);
 
         }
+        
+     
 
         public Aluno (int cpf)
         {
@@ -118,11 +122,13 @@ namespace aula13_banco
                 Console.WriteLine("insert into Estudo_Aluno (CPFAluno, nomeAluno, ruaAluno, numeroAluno," +
                     "bairroAluno, complementoAluno, CEPAluno, cidadeAluno, telefoneAluno, emailAluno, fotoAluno) values " +
                     "('" + cpf + "','" + nome + "','" + rua + "','" + numero + "','" + bairro + "','" + complemento + "','" + cep + "','" +
-                    cidade + "','" + estado + "','" + telefone + "','" + email + "')");
+                    cidade + "','" + estado + "','" + telefone + "','" + email + "',@foto)");
+
                 MySqlCommand insere = new MySqlCommand("insert into Estudo_Aluno (CPFAluno, nomeAluno, ruaAluno, numeroAluno," +
                     "bairroAluno, complementoAluno, CEPAluno, cidadeAluno, telefoneAluno, emailAluno, fotoAluno) values " +
                     "('" + cpf + "','" + nome + "','" + rua + "','" + numero + "','" + bairro + "','" + complemento + "','" + cep + "','" +
-                    cidade + "','" + estado + "','" + telefone + "','" + email + "')", DAO_Conexao.con);
+                    cidade + "','" + estado + "','" + telefone + "','" + email + "',@foto)", DAO_Conexao.con);
+                insere.Parameters.AddWithValue("foto", this.foto);
 
                 insere.ExecuteNonQuery();
                 cad = true;
@@ -204,7 +210,7 @@ namespace aula13_banco
 
                 MySqlCommand atualiza = new MySqlCommand("update Estudo_Aluno set nomeAluno = '" 
                     + nome + "',ruaAluno ='" + rua + "', numeroAluno ='" + numero + "',bairroAluno= '" + bairro + "',complementoAluno='" + complemento + "',CEPAluno='" + cep + "',cidadeAluno='" +
-                    cidade + "',estadoAluno='" + estado + "',telefoneAluno='" + telefone + "',emailaluno='" + email + "')", DAO_Conexao.con);
+                    cidade + "',estadoAluno='" + estado + "',telefoneAluno='" + telefone + "',emailaluno='" + email + "',@foto)", DAO_Conexao.con);
                 atualiza.ExecuteNonQuery();
                 exc = true;
             }
@@ -246,6 +252,11 @@ namespace aula13_banco
         public Aluno(string cpf)
         {
             this.cpf = cpf;
+        }
+
+        public Aluno(string nome, string rua, string numero, string bairro, string complemento, string cep, string cidade, string estado, string telefone, string email, byte[] foto1) : this(nome, rua, numero, bairro, complemento, cep, cidade, estado, telefone, email)
+        {
+            this.foto1 = foto1;
         }
 
         private void setCPF(string cpf)
@@ -358,15 +369,15 @@ namespace aula13_banco
             return this.email;
         }
 
-        /*private void setFoto(byte[] foto)
+        private void setFoto(byte[] foto)
         {
             this.foto = foto;
-        }*/
+        }
 
-       /* private byte[] getFoto()
+       private byte[] getFoto()
         {
             return this.foto;
-        }*/
+        }
 
         private void setAtivo(bool Ativo)
         {

@@ -55,6 +55,7 @@ namespace aula13_banco
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -219,7 +220,6 @@ namespace aula13_banco
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(270, 20);
             this.txtNome.TabIndex = 7;
-           // this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // txtCPF
             // 
@@ -290,6 +290,7 @@ namespace aula13_banco
             this.pictureBox1.Location = new System.Drawing.Point(557, 43);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(207, 349);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
@@ -301,6 +302,11 @@ namespace aula13_banco
             this.button2.TabIndex = 3;
             this.button2.Text = "Escolher Foto";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form3
             // 
@@ -348,5 +354,6 @@ namespace aula13_banco
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

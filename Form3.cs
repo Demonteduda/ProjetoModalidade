@@ -54,11 +54,26 @@ namespace aula13_banco
                
             }
 
+
+        private byte[] ConverterFotoParaByteArray()
+        {
+            using (var stream = new System.IO.MemoryStream())
+            {
+                pictureBox1.Image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                stream.Seek(0, System.IO.SeekOrigin.Begin);
+                Byte[] bArray = new byte[stream.Length];
+                stream.Read(bArray, 0, System.Convert.ToInt32(stream.Length));
+                return bArray;
+            }
+        }
+
         private void btnCadastrar_Click_1(object sender, EventArgs e)
         {
-         
 
-            Aluno aln = new Aluno(txtNome.Text, txtEnd.Text, txtNumero.Text, txtBairro.Text, txtCompl.Text, txtCep.Text, txtCidade.Text, txtEstado.Text, txtTel.Text, txtEmail.Text);
+            byte[] foto1 = ConverterFotoParaByteArray();
+
+            Aluno aln = new Aluno(txtNome.Text, txtEnd.Text, txtNumero.Text, txtBairro.Text, txtCompl.Text, txtCep.Text, txtCidade.Text, txtEstado.Text, txtTel.Text, txtEmail.Text,foto1);
             txtCPF.Enabled = false;
             if (opc == 1)
             {
@@ -89,6 +104,9 @@ namespace aula13_banco
 
         private void txtCPF_KeyPress(object sender, KeyPressEventArgs e)
         {
+
+
+
             Aluno aluno = new Aluno(txtCPF.Text);
 
          /*  if (aluno.verificaCPF())
@@ -125,6 +143,27 @@ namespace aula13_banco
         private void txtNome_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+
+            dialog.Title = "Abrir foto";
+            dialog.Filter = "JPG(*.jpg)|*.jpg"+"|All files (*.*)|*.*";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    pictureBox1.Image = new Bitmap(dialog.OpenFile());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Não foi possível carregar a foto: " + ex.Message);
+                }
+                dialog.Dispose();
+            }
         }
     }
 }
