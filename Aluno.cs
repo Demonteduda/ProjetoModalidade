@@ -61,6 +61,11 @@ namespace aula13_banco
             setAtivo(Ativo);
 
         }
+
+        public Aluno ()
+        {
+
+        }
         
      
 

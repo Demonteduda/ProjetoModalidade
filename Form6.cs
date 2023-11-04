@@ -27,7 +27,9 @@ namespace aula13_banco
             Matricula mat = new Matricula(txtcpfAluno.Text);
 
             if (mat.excluirMatricula())
-            MessageBox.Show("Matricula excluida com sucesso!!");
+                MessageBox.Show("Matricula excluida com sucesso!!");
+            else
+                MessageBox.Show("Matricula não excluida");
 
 
         }

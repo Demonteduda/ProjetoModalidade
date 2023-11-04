@@ -23,6 +23,11 @@ namespace aula13_banco
             Cpfalu = cpfalu;
             
         }
+        public Matricula(string cpfalu, string nomeTur)
+        {
+            NomeTur = nomeTur;
+            Cpfalu = cpfalu;
+        }
 
         public Matricula(string cpfalu)
         {
@@ -75,18 +80,18 @@ namespace aula13_banco
         }
    */
 
-        public int verificaAlunos(int idmod, int idtur)
+        public int verificaAlunos(int qtdAlu, int alun)
         {
             int resul=0;
-            Modalidade md = new Modalidade(idmod);
+            Modalidade md = new Modalidade(qtdAlu);
             md.AlunosQuant(qtd2);
 
             Turma tur1 = new Turma(idTurma);
             tur1.qtdAlunos(qtd1);
 
-            if (qtd1 > qtd2)
+            if (qtd1<= qtd2)
             {
-  Console.WriteLine("Quantidade menor de alunos");
+             Console.WriteLine("Quantidade menor de alunos");
               resul = 1;
             }
 
@@ -128,6 +133,25 @@ namespace aula13_banco
                 DAO_Conexao.con.Open();
                 MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudo_Aluno inner join Estudio_Matricula on Estudo_Aluno.CPFAaluno where Estudio_Matricula.idTurma= '"+idTurma+"'", DAO_Conexao.con);
                
+                consul = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return consul;
+        }
+
+        public MySqlDataReader consultarMatricula1()
+        {
+            MySqlDataReader consul = null;
+
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudo_Aluno inner join Estudio_Turma on Estudo_Aluno.CPFAaluno where Estudio_Turma.NomeTurma= '" + idTurma + "'", DAO_Conexao.con);
+
                 consul = consulta.ExecuteReader();
             }
             catch (Exception ex)

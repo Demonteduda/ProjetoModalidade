@@ -20,7 +20,7 @@ namespace aula13_banco
 
         private void btnConsultarMatricula_Click(object sender, EventArgs e)
         {
-            
+            DAO_Conexao.con.Clone();
             Matricula m1 = new Matricula(cmbTurma.Text);
             MySqlDataReader re = m1.consultarMatricula();
             while (re.Read())
@@ -31,6 +31,7 @@ namespace aula13_banco
                 listBox1.Items.Add(m1.NomeTur);
                 listBox1.Items.Add(m1.Cpfalu);
             }
+
            
 
             

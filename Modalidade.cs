@@ -178,7 +178,29 @@ namespace aula13_banco
             return exc;
         }
 
-        
+        public MySqlDataReader ConsultarTodasModalidadesAtivas()
+        {
+            MySqlCommand consultaTodos = null;
+            MySqlDataReader resultadoTodos = null;
+
+            try
+            {
+                DAO_Conexao.con.Open();
+                consultaTodos = new MySqlCommand("SELECT * FROM Estudio_Modalidade where ativa=0", DAO_Conexao.con);
+                resultadoTodos = consultaTodos.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            finally
+            {
+            }
+            return resultadoTodos;
+        }
+
+
 
         public string Descricao { get => descricao; set => descricao = value; }
         public decimal Preco { get => preco; set => preco = value; }

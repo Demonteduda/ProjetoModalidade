@@ -17,6 +17,7 @@ namespace aula13_banco
         private string nometur;
         private string idTurma;
         private string idMod;
+        private string idalu;
 
         public cadMatricula()
         {
@@ -70,19 +71,42 @@ namespace aula13_banco
 
         private void btnMatricular_Click(object sender, EventArgs e)
         {
-           
+
             try
             {
-                Turma con_Tur = new Turma();
-                MySqlDataReader r = con_Tur.consultarTodasTurmas();
 
+                Modalidade mol = new Modalidade();
+                MySqlDataReader r = mol.consultarTodasModalide();
+                Console.WriteLine("entrouuuuuuuuuuuuuuuuuu");
                 while (r.Read())
-                {
-                    int a = int.Parse(r["ativa"].ToString());
+                { 
+                    int a = int.Parse(r["atival"].ToString());
                     if (a == 0)
-                    {
+                    {Console.WriteLine("passouuuuuuuuuuuuuuu");
+
                         idTurma = (r["idEstudio_Turma"].ToString());
                         idMod = (r["idModalidade"].ToString());
+                    }
+                   
+                    int idmoda = int.Parse(idMod);
+                    int id = int.Parse(idTurma);
+
+                    Aluno al = new Aluno();
+                    MySqlDataReader alu = al.consultarAluno1();
+                    Matricula mat = new Matricula(id, mktCpf.Text, nometur);
+
+                    if (mat.verificaAlunos(idmoda, id) == 1)
+                    {
+                        if (al.verificaCPF())
+                        {
+                            mat.cadMatricula();
+                            Console.WriteLine("Aluno cadastrado na turma!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Aluno não cadastrado!");
+
+                        }
                     }
                 }
             }
@@ -96,35 +120,46 @@ namespace aula13_banco
                 DAO_Conexao.con.Close();
             }
 
+            // Aluno al = new Aluno(mktCpf.Text);    
+        
 
-            int idmoda = int.Parse(idMod);
-
-            int id = int.Parse(idTurma);
-
-
+         }
             
-             Aluno al = new Aluno(mktCpf.Text);
-           
 
-            Matricula mat = new Matricula(id,mktCpf.Text,nometur);
 
-            if(mat.verificaAlunos(idmoda, id)==1)
+
+          /*  try
             {
-                if (al.verificaCPF())
-                {
-                    mat.cadMatricula();
-                    Console.WriteLine("ALuno cadastrado na turma!");
-                }
-                else
-                {
-                    Console.WriteLine("Aluno não cadastrado!");
+                Turma turm = new Turma();
+                MySqlDataReader rt = turm.consultarTodasTurmas();
+                Aluno alun = new Aluno();
+                MySqlDataReader ra = alun.consultarAluno1();
+                Matricula mat = new Matricula(mktCpf.Text, nometur);
 
+                while (ra.Read() && rt.Read())
+                {
+                    nometur = (rt["NomeTurma"].ToString());
+                    idalu = (ra["CPFAluno"].ToString());
                 }
+
+                mat.cadMatricula();
+                Console.WriteLine("Aluno cadastrado em turma");
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro no preencher");
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
             }
 
-            
+*/           
 
-        }
+
+
 
 
 

@@ -51,7 +51,8 @@ namespace aula13_banco
         }
 
         public int qtdAlunos(int qtd)
-        {
+        { 
+
             return qtd;
         }
 
@@ -81,7 +82,7 @@ namespace aula13_banco
 
                 Console.WriteLine(ex.ToString());
             }
-            finally
+           finally
             {
                 DAO_Conexao.con.Close();
             }
@@ -134,6 +135,7 @@ namespace aula13_banco
 
         public MySqlDataReader consultarTodasTurmas()
         {
+           
             MySqlDataReader consul = null;
             try
             {
@@ -147,6 +149,25 @@ namespace aula13_banco
             }
             
            
+
+            return consul;
+        }
+
+        public MySqlDataReader consultarTodasTurmas1(int id)
+        {
+
+            MySqlDataReader consul = null;
+            try
+            {
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudio_Turma where idEstudio_Turma= '"+id+"'", DAO_Conexao.con);
+                consul = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+
 
             return consul;
         }
