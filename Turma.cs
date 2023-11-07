@@ -12,6 +12,12 @@ namespace aula13_banco
     class Turma
     {
         private string nome, professor, dia_semana, hora;
+
+        public Turma(string nome)
+        {
+            this.nome = nome;
+        }
+
         private int modalidade, qtde_Alunos, id;
 
         public Turma(int modalidade)

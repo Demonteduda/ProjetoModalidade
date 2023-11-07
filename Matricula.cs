@@ -56,7 +56,10 @@ namespace aula13_banco
 
                 MySqlCommand insere = new MySqlCommand("insert into Estudio_Matricula (cpfAlu, idTurma, NomeTurma) values " +
                "('" + Cpfalu + "','" + idTurma + "','" + nomeTur + "',)", DAO_Conexao.con);
-                insere.ExecuteNonQuery();
+                insere.ExecuteNonQuery();    
+                MySqlCommand aumenAlunos = new MySqlCommand("Update Estudio_Turma set alunosmatriculadosTurma + 1" +
+                    "where idEstudio_Turma = " + idTurma, DAO_Conexao.con);
+                aumenAlunos.ExecuteNonQuery(); 
                 cad = true;
             }
             catch (Exception ex)

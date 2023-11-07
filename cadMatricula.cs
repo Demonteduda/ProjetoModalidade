@@ -27,6 +27,7 @@ namespace aula13_banco
                 WindowState = FormWindowState.Maximized;
                 Turma con_Tur = new Turma();
                 MySqlDataReader r = con_Tur.consultarTodasTurmas();
+                List<int> vetCods = new List<int>();
 
                 while (r.Read())
                 {
@@ -34,6 +35,7 @@ namespace aula13_banco
                     if (a == 0)
                     {
                         dataGridView1.Rows.Add(r["NomeTurma"].ToString());
+                        vetCods.Add(int.Parse(r["idEstudio_Turma"].ToString()));
                         nometur = (r["NomeTurma"].ToString());
                         idTurma = (r["idEstudio_Turma"].ToString());
                         idMod = (r["idModalidade"].ToString());
@@ -83,14 +85,13 @@ namespace aula13_banco
             Turma tur = new Turma();
             int qtdalu = tur.consulqtd(idt);
                     string cpf2 = mktCpf.ToString();
-                    Aluno al = new Aluno(cpf2);
-                    MySqlDataReader alu = al.consultarAluno1();
-                    Matricula mat = new Matricula(idt, mktCpf.Text, nometur);
+                    Aluno al1 = new Aluno(textBox1.Text);
+                    Matricula mat = new Matricula(idt, textBox1.Text, nometur);
+   
 
-                    if (qtdalu<qtdmax)
+            if (qtdalu<qtdmax)
                     {
-                Console.WriteLine("Entrouuuuuuuuuuuuuuuuu");
-                        if (al.verificaCPF())
+                        if (al1.verificaCPF())
                         {
                             mat.cadMatricula();
                             Console.WriteLine("Aluno cadastrado na turma!");
