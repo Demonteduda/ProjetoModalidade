@@ -50,11 +50,7 @@ namespace aula13_banco
 
         }
 
-        public int qtdAlunos(int qtd)
-        { 
-
-            return qtd;
-        }
+       
 
         public string Professor { get => professor; set => professor = value; }
         public string Dia_semana { get => dia_semana; set => dia_semana = value; }
@@ -88,6 +84,28 @@ namespace aula13_banco
             }
             return cad;
 
+        }
+
+        public int consulqtd(int idTur)
+        {
+            int alu = 0;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand buscarqtd = new MySqlCommand("Select alunosmatriculadosTurma from Estudio_Turma where " +
+                    "idEstudio_Turma = "+ idTur, DAO_Conexao.con);
+                MySqlDataReader r = buscarqtd.ExecuteReader();
+                while(r.Read())
+                {
+                    alu = int.Parse(r["alunosmatriculadosTurma"].ToString());
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return alu;
         }
 
         public MySqlDataReader consultarTurma(int mod1)

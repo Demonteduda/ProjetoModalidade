@@ -9,7 +9,7 @@ namespace aula13_banco
 {
     class Aluno
     {
-        private string cpf;
+        private string Cpf;
         private string nome;
         private string rua;
         private string numero;
@@ -23,6 +23,7 @@ namespace aula13_banco
         private bool Ativo;
         private byte[] foto;
         private byte[] foto1;
+
 
         public Aluno(string cpf, string nome, string rua, String numero, String bairro, string complemento, string cep, string cidade,
        string estado, string telefone, string email, byte[]foto)
@@ -42,6 +43,12 @@ namespace aula13_banco
             setAtivo(Ativo);
             setFoto(foto);
 
+        }
+
+        public Aluno(string cpf1, string cpf)
+        {
+            setCPF(cpf1);
+            Cpf = cpf;
         }
 
 
@@ -69,10 +76,7 @@ namespace aula13_banco
         
      
 
-        public Aluno (int cpf)
-        {
-            setCPF(cpf.ToString());
-        }
+      
 
 
         public bool verificaCPF() //string CPF - sem parâmetro
@@ -80,14 +84,14 @@ namespace aula13_banco
             int soma, resto, cont = 0;
             soma = 0;
 
-            cpf = cpf.Trim();
-            cpf = cpf.Replace(".", "");
-            cpf = cpf.Replace("-", "");
+            Cpf = Cpf.Trim();
+            Cpf = Cpf.Replace(".", "");
+            Cpf = Cpf.Replace("-", "");
 
-            for (int i = 0; i < cpf.Length; i++)
+            for (int i = 0; i < Cpf.Length; i++)
             {
-                int a = cpf[0] - '0';
-                int b = cpf[i] - '0';
+                int a = Cpf[0] - '0';
+                int b = Cpf[i] - '0';
 
                 if (a == b) cont++;
             }
@@ -96,23 +100,23 @@ namespace aula13_banco
 
             for (int i = 1; i <= 9; i++) 
             
-                soma += int.Parse(cpf.Substring(i - 1, 1)) * (11 - i);
+                soma += int.Parse(Cpf.Substring(i - 1, 1)) * (11 - i);
 
             resto = (soma * 10) % 11;
 
             if ((resto == 10) || (resto == 11)) resto = 0;
 
-            if (resto != int.Parse(cpf.Substring(9, 1))) return false;
+            if (resto != int.Parse(Cpf.Substring(9, 1))) return false;
 
             soma = 0;
 
-            for (int i = 1; i <= 10; i++) soma += int.Parse(cpf.Substring(i - 1, 1)) * (12 - i);
+            for (int i = 1; i <= 10; i++) soma += int.Parse(Cpf.Substring(i - 1, 1)) * (12 - i);
 
             resto = (soma * 10) % 11;
 
             if ((resto == 10) || (resto == 11)) resto = 0;
 
-            if (resto != int.Parse(cpf.Substring(10, 1))) return false;
+            if (resto != int.Parse(Cpf.Substring(10, 1))) return false;
 
             return true;
         }
@@ -126,12 +130,12 @@ namespace aula13_banco
                 DAO_Conexao.con.Open();
                 Console.WriteLine("insert into Estudo_Aluno (CPFAluno, nomeAluno, ruaAluno, numeroAluno," +
                     "bairroAluno, complementoAluno, CEPAluno, cidadeAluno, telefoneAluno, emailAluno, fotoAluno) values " +
-                    "('" + cpf + "','" + nome + "','" + rua + "','" + numero + "','" + bairro + "','" + complemento + "','" + cep + "','" +
+                    "('" + Cpf + "','" + nome + "','" + rua + "','" + numero + "','" + bairro + "','" + complemento + "','" + cep + "','" +
                     cidade + "','" + estado + "','" + telefone + "','" + email + "',@foto)");
 
                 MySqlCommand insere = new MySqlCommand("insert into Estudo_Aluno (CPFAluno, nomeAluno, ruaAluno, numeroAluno," +
                     "bairroAluno, complementoAluno, CEPAluno, cidadeAluno, telefoneAluno, emailAluno, fotoAluno) values " +
-                    "('" + cpf + "','" + nome + "','" + rua + "','" + numero + "','" + bairro + "','" + complemento + "','" + cep + "','" +
+                    "('" + Cpf + "','" + nome + "','" + rua + "','" + numero + "','" + bairro + "','" + complemento + "','" + cep + "','" +
                     cidade + "','" + estado + "','" + telefone + "','" + email + "',@foto)", DAO_Conexao.con);
                 insere.Parameters.AddWithValue("foto", this.foto);
 
@@ -158,7 +162,7 @@ namespace aula13_banco
             {
                 DAO_Conexao.con.Open();
                 MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudo_Aluno" +
-                    "WHERE CPFAluno= '" + cpf + "'", DAO_Conexao.con);
+                    "WHERE CPFAluno= '" + Cpf + "'", DAO_Conexao.con);
                 MySqlDataReader resultado = consulta.ExecuteReader();
                 if (resultado.Read())
                 {
@@ -186,7 +190,7 @@ namespace aula13_banco
             {
                 DAO_Conexao.con.Open();
                 MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudo_Aluno" +
-                    "WHERE CPFAluno= '" + cpf + "'", DAO_Conexao.con);
+                    "WHERE CPFAluno= '" + Cpf + "'", DAO_Conexao.con);
                 MySqlDataReader resultado = consulta.ExecuteReader();
                 if (resultado.Read())
                 {
@@ -239,7 +243,7 @@ namespace aula13_banco
             {
                 DAO_Conexao.con.Open();
                 MySqlCommand exclui = new MySqlCommand("update Estudo_Aluno set ativo" +
-                "= 1 where cpfAluno = '" + cpf + "'", DAO_Conexao.con);
+                "= 1 where cpfAluno = '" + Cpf + "'", DAO_Conexao.con);
                 exclui.ExecuteNonQuery();
                 exc = true;
             }
@@ -256,7 +260,7 @@ namespace aula13_banco
 
         public Aluno(string cpf)
         {
-            this.cpf = cpf;
+            this.Cpf = cpf;
         }
 
         public Aluno(string nome, string rua, string numero, string bairro, string complemento, string cep, string cidade, string estado, string telefone, string email, byte[] foto1) : this(nome, rua, numero, bairro, complemento, cep, cidade, estado, telefone, email)
@@ -266,12 +270,12 @@ namespace aula13_banco
 
         private void setCPF(string cpf)
         {
-            this.cpf = cpf;
+            this.Cpf = cpf;
         }
 
         private string getCPF()
         {
-            return this.cpf;
+            return this.Cpf;
         }
 
         private void setNome(string nome)

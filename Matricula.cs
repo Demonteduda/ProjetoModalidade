@@ -23,6 +23,14 @@ namespace aula13_banco
             Cpfalu = cpfalu;
             
         }
+
+        public Matricula(int idTurma, string cpfalu)
+        {
+            IdTurma = idTurma;
+            Cpfalu = cpfalu;
+
+        }
+
         public Matricula(string cpfalu, string nomeTur)
         {
             NomeTur = nomeTur;
@@ -37,7 +45,7 @@ namespace aula13_banco
         public int IdTurma { get => idTurma; set => idTurma = value; }
         public string NomeTur { get => nomeTur; set => nomeTur = value; }
         public string Cpfalu { get => cpfalu; set => cpfalu = value; }
-
+ 
         public bool cadMatricula()
         {
 
@@ -80,23 +88,7 @@ namespace aula13_banco
         }
    */
 
-        public int verificaAlunos(int qtdAlu, int alun)
-        {
-            int resul=0;
-            Modalidade md = new Modalidade(qtdAlu);
-            md.AlunosQuant(qtd2);
-
-            Turma tur1 = new Turma(idTurma);
-            tur1.qtdAlunos(qtd1);
-
-            if (qtd1<= qtd2)
-            {
-             Console.WriteLine("Quantidade menor de alunos");
-              resul = 1;
-            }
-
-            return resul;
-        }
+     
 
         public bool excluirMatricula()
         {

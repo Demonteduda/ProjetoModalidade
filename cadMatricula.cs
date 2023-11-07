@@ -35,6 +35,8 @@ namespace aula13_banco
                     {
                         dataGridView1.Rows.Add(r["NomeTurma"].ToString());
                         nometur = (r["NomeTurma"].ToString());
+                        idTurma = (r["idEstudio_Turma"].ToString());
+                        idMod = (r["idModalidade"].ToString());
                     }
                 }
                 txtTurma.Enabled = false;
@@ -71,32 +73,23 @@ namespace aula13_banco
 
         private void btnMatricular_Click(object sender, EventArgs e)
         {
+            int idt = int.Parse(idTurma);
 
-            try
-            {
-
+           
                 Modalidade mol = new Modalidade();
-                MySqlDataReader r = mol.consultarTodasModalide();
-                Console.WriteLine("entrouuuuuuuuuuuuuuuuuu");
-                while (r.Read())
-                { 
-                    int a = int.Parse(r["atival"].ToString());
-                    if (a == 0)
-                    {Console.WriteLine("passouuuuuuuuuuuuuuu");
-
-                        idTurma = (r["idEstudio_Turma"].ToString());
-                        idMod = (r["idModalidade"].ToString());
-                    }
                    
-                    int idmoda = int.Parse(idMod);
-                    int id = int.Parse(idTurma);
-
-                    Aluno al = new Aluno();
+            int idmoda = int.Parse(idMod);
+            int qtdmax = mol.consultarQtd(idmoda);
+            Turma tur = new Turma();
+            int qtdalu = tur.consulqtd(idt);
+                    string cpf2 = mktCpf.ToString();
+                    Aluno al = new Aluno(cpf2);
                     MySqlDataReader alu = al.consultarAluno1();
-                    Matricula mat = new Matricula(id, mktCpf.Text, nometur);
+                    Matricula mat = new Matricula(idt, mktCpf.Text, nometur);
 
-                    if (mat.verificaAlunos(idmoda, id) == 1)
+                    if (qtdalu<qtdmax)
                     {
+                Console.WriteLine("Entrouuuuuuuuuuuuuuuuu");
                         if (al.verificaCPF())
                         {
                             mat.cadMatricula();
@@ -104,25 +97,16 @@ namespace aula13_banco
                         }
                         else
                         {
-                            Console.WriteLine("Aluno não cadastrado!");
+                            Console.WriteLine("Erro no cpf.");
 
                         }
                     }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro no preencher");
-            }
-            finally
-            {
-                DAO_Conexao.con.Close();
-            }
-
-            // Aluno al = new Aluno(mktCpf.Text);    
-        
-
+                    else
+                    {
+                        MessageBox.Show("Quantidade máxima de alunos atingida!");
+                    }
+                
+            
          }
             
 
@@ -157,9 +141,6 @@ namespace aula13_banco
             }
 
 */           
-
-
-
 
 
 
