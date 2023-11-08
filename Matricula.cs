@@ -13,8 +13,7 @@ namespace aula13_banco
         private int idTurma;//Turma
         private string cpfalu;
         private string nomeTur;
-        private int qtd1;
-        private int qtd2;
+       
        
         public Matricula(int idTurma, string cpfalu, string nomeTur)
         {
@@ -35,6 +34,10 @@ namespace aula13_banco
         {
             NomeTur = nomeTur;
             Cpfalu = cpfalu;
+        }
+
+        public Matricula()
+        {
         }
 
         public Matricula(string cpfalu)
@@ -58,7 +61,7 @@ namespace aula13_banco
                "('" + Cpfalu + "','" + idTurma + "','" + nomeTur + "',)", DAO_Conexao.con);
                 insere.ExecuteNonQuery();    
                 MySqlCommand aumenAlunos = new MySqlCommand("Update Estudio_Turma set alunosmatriculadosTurma + 1" +
-                    "where idEstudio_Turma = " + idTurma, DAO_Conexao.con);
+                    "where idEstudio_Turma = '" + idTurma+"'", DAO_Conexao.con);
                 aumenAlunos.ExecuteNonQuery(); 
                 cad = true;
             }
@@ -119,14 +122,14 @@ namespace aula13_banco
         //   select* from Estudio_Aluno inner join Estudio_Matricula on Estudio_Aluno.CPFAluno = Estudio_Matricula.cpf_Aluno where Estudio_Matricula.id_Turma= '
 
 
-        public MySqlDataReader consultarMatricula()
+        public MySqlDataReader consultarMatricula(int idTur)
         {
             MySqlDataReader consul = null;
 
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudo_Aluno inner join Estudio_Matricula on Estudo_Aluno.CPFAaluno where Estudio_Matricula.idTurma= '"+idTurma+"'", DAO_Conexao.con);
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudo_Aluno inner join Estudio_Matricula on Estudo_Aluno.CPFAaluno where Estudio_Matricula.idTurma= '"+idTur+"'", DAO_Conexao.con);
                
                 consul = consulta.ExecuteReader();
             }

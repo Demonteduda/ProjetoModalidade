@@ -49,7 +49,7 @@ namespace aula13_banco
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int tipo = DAO_Conexao.VerificaLogin(textBox1.Text, textBox2.Text);
+           int tipo = DAO_Conexao.VerificaLogin(textBox1.Text, textBox2.Text);
             if (tipo == 0)
                 MessageBox.Show("Usuário/Senha inválidos");
             if (tipo == 1)
@@ -65,6 +65,7 @@ namespace aula13_banco
                 cadastrarAlunoToolStripMenuItem.Enabled = false;
 
             }
+          
         }
 
         private void atualizarDadosToolStripMenuItem_Click(object sender, EventArgs e)

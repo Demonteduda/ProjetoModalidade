@@ -30,20 +30,20 @@ namespace aula13_banco
         private void InitializeComponent()
         {
             this.Excluir = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbTurma = new System.Windows.Forms.ComboBox();
             this.lblturma = new System.Windows.Forms.Label();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.txtcpfAluno = new System.Windows.Forms.TextBox();
             this.lblcpfAluno = new System.Windows.Forms.Label();
+            this.mskdCpf = new System.Windows.Forms.MaskedTextBox();
             this.Excluir.SuspendLayout();
             this.SuspendLayout();
             // 
             // Excluir
             // 
-            this.Excluir.Controls.Add(this.comboBox1);
+            this.Excluir.Controls.Add(this.mskdCpf);
+            this.Excluir.Controls.Add(this.cmbTurma);
             this.Excluir.Controls.Add(this.lblturma);
             this.Excluir.Controls.Add(this.btnExcluir);
-            this.Excluir.Controls.Add(this.txtcpfAluno);
             this.Excluir.Controls.Add(this.lblcpfAluno);
             this.Excluir.Location = new System.Drawing.Point(194, 71);
             this.Excluir.Name = "Excluir";
@@ -52,13 +52,14 @@ namespace aula13_banco
             this.Excluir.TabStop = false;
             this.Excluir.Text = "Excluir Aluno da Turma";
             // 
-            // comboBox1
+            // cmbTurma
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(75, 43);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(129, 21);
-            this.comboBox1.TabIndex = 4;
+            this.cmbTurma.FormattingEnabled = true;
+            this.cmbTurma.Location = new System.Drawing.Point(75, 43);
+            this.cmbTurma.Name = "cmbTurma";
+            this.cmbTurma.Size = new System.Drawing.Size(129, 21);
+            this.cmbTurma.TabIndex = 4;
+            this.cmbTurma.SelectedIndexChanged += new System.EventHandler(this.cmbTurma_SelectedIndexChanged);
             // 
             // lblturma
             // 
@@ -79,13 +80,6 @@ namespace aula13_banco
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
-            // txtcpfAluno
-            // 
-            this.txtcpfAluno.Location = new System.Drawing.Point(75, 82);
-            this.txtcpfAluno.Name = "txtcpfAluno";
-            this.txtcpfAluno.Size = new System.Drawing.Size(129, 20);
-            this.txtcpfAluno.TabIndex = 1;
-            // 
             // lblcpfAluno
             // 
             this.lblcpfAluno.AutoSize = true;
@@ -94,6 +88,14 @@ namespace aula13_banco
             this.lblcpfAluno.Size = new System.Drawing.Size(60, 13);
             this.lblcpfAluno.TabIndex = 0;
             this.lblcpfAluno.Text = "CPF Aluno:";
+            // 
+            // mskdCpf
+            // 
+            this.mskdCpf.Location = new System.Drawing.Point(75, 82);
+            this.mskdCpf.Mask = "000-000-000-00";
+            this.mskdCpf.Name = "mskdCpf";
+            this.mskdCpf.Size = new System.Drawing.Size(129, 20);
+            this.mskdCpf.TabIndex = 5;
             // 
             // ExMatricula
             // 
@@ -113,10 +115,10 @@ namespace aula13_banco
         #endregion
 
         private System.Windows.Forms.GroupBox Excluir;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbTurma;
         private System.Windows.Forms.Label lblturma;
         private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.TextBox txtcpfAluno;
         private System.Windows.Forms.Label lblcpfAluno;
+        private System.Windows.Forms.MaskedTextBox mskdCpf;
     }
 }

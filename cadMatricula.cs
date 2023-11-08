@@ -13,32 +13,25 @@ namespace aula13_banco
 {
     public partial class cadMatricula : Form
     {
-
-        private string nometur;
-        private string idTurma;
-        private string idMod;
-        private string idalu;
+        string nometur;
 
         public cadMatricula()
         {
             try
             {
                 InitializeComponent();
-                WindowState = FormWindowState.Maximized;
                 Turma con_Tur = new Turma();
                 MySqlDataReader r = con_Tur.consultarTodasTurmas();
-                List<int> vetCods = new List<int>();
-
+              
                 while (r.Read())
                 {
                     int a = int.Parse(r["ativa"].ToString());
                     if (a == 0)
                     {
-                        dataGridView1.Rows.Add(r["NomeTurma"].ToString());
-                        vetCods.Add(int.Parse(r["idEstudio_Turma"].ToString()));
-                        nometur = (r["NomeTurma"].ToString());
-                        idTurma = (r["idEstudio_Turma"].ToString());
-                        idMod = (r["idModalidade"].ToString());
+          dataGridView1.Rows.Add(r["NomeTurma"].ToString()) ;
+                      
+                        //  idTurma = (r["idEstudio_Turma"].ToString());
+                        //idMod = (r["idModalidade"].ToString());
                     }
                 }
                 txtTurma.Enabled = false;
@@ -68,6 +61,7 @@ namespace aula13_banco
 
                     // Atribua o valor da célula ao TextBox
                     txtTurma.Text = cellValue.ToString();
+                    nometur = cellValue.ToString();
                 }
 
             }
@@ -75,76 +69,81 @@ namespace aula13_banco
 
         private void btnMatricular_Click(object sender, EventArgs e)
         {
-            int idt = int.Parse(idTurma);
+            Turma t1 = new Turma();
+            int idtur = t1.consulIdTurma(nometur);
+            Turma t2 = new Turma();
+            int idmod = t2.consulIdMod1(nometur);
+            Modalidade mol = new Modalidade();
+            int qtdmax = mol.consultarQtd(idmod);
+            int qtdalu = t1.consulqtd(idtur);
+
+            MessageBox.Show(qtdmax.ToString());
+            MessageBox.Show(qtdalu.ToString());
+            Aluno al1 = new Aluno();
+            Matricula mat = new Matricula(idtur, mktCpf.Text, nometur);
 
            
-                Modalidade mol = new Modalidade();
-                   
-            int idmoda = int.Parse(idMod);
-            int qtdmax = mol.consultarQtd(idmoda);
-            Turma tur = new Turma();
-            int qtdalu = tur.consulqtd(idt);
-                    string cpf2 = mktCpf.ToString();
-                    Aluno al1 = new Aluno(textBox1.Text);
-                    Matricula mat = new Matricula(idt, textBox1.Text, nometur);
-   
-
-            if (qtdalu<qtdmax)
-                    {
-                        if (al1.verificaCPF())
-                        {
-                            mat.cadMatricula();
-                            Console.WriteLine("Aluno cadastrado na turma!");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Erro no cpf.");
-
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Quantidade máxima de alunos atingida!");
-                    }
-                
-            
-         }
-            
-
-
-
-          /*  try
+            if (qtdalu < qtdmax)
             {
-                Turma turm = new Turma();
-                MySqlDataReader rt = turm.consultarTodasTurmas();
-                Aluno alun = new Aluno();
-                MySqlDataReader ra = alun.consultarAluno1();
-                Matricula mat = new Matricula(mktCpf.Text, nometur);
-
-                while (ra.Read() && rt.Read())
+                if (al1.verificaCPF(mktCpf.Text))
                 {
-                    nometur = (rt["NomeTurma"].ToString());
-                    idalu = (ra["CPFAluno"].ToString());
+                    mat.cadMatricula();
+                    MessageBox.Show("Aluno cadastrado na turma!");
                 }
+                else
+                {
+                    MessageBox.Show("Erro no cpf.");
 
-                mat.cadMatricula();
-                Console.WriteLine("Aluno cadastrado em turma");
-
-
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Erro no preencher");
+                MessageBox.Show("Quantidade máxima de alunos atingida!");
             }
-            finally
-            {
-                DAO_Conexao.con.Close();
-            }
-
-*/           
-
-
 
         
+         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+        /*  try
+          {
+              Turma turm = new Turma();
+              MySqlDataReader rt = turm.consultarTodasTurmas();
+              Aluno alun = new Aluno();
+              MySqlDataReader ra = alun.consultarAluno1();
+              Matricula mat = new Matricula(mktCpf.Text, nometur);
+
+              while (ra.Read() && rt.Read())
+              {
+                  nometur = (rt["NomeTurma"].ToString());
+                  idalu = (ra["CPFAluno"].ToString());
+              }
+
+              mat.cadMatricula();
+              Console.WriteLine("Aluno cadastrado em turma");
+
+
+          }
+          catch (Exception ex)
+          {
+              MessageBox.Show("Erro no preencher");
+          }
+          finally
+          {
+              DAO_Conexao.con.Close();
+          }
+
+*/
+
+
+
+
     }
 }

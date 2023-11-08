@@ -34,11 +34,10 @@ namespace aula13_banco
             this.btnMatricular = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.mktCpf = new System.Windows.Forms.MaskedTextBox();
             this.txtTurma = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Turma = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.mktCpf = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -49,9 +48,9 @@ namespace aula13_banco
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Turma1});
-            this.dataGridView1.Location = new System.Drawing.Point(15, 19);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 28);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(265, 231);
+            this.dataGridView1.Size = new System.Drawing.Size(354, 231);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -62,7 +61,7 @@ namespace aula13_banco
             // 
             // btnMatricular
             // 
-            this.btnMatricular.Location = new System.Drawing.Point(415, 263);
+            this.btnMatricular.Location = new System.Drawing.Point(476, 265);
             this.btnMatricular.Name = "btnMatricular";
             this.btnMatricular.Size = new System.Drawing.Size(221, 56);
             this.btnMatricular.TabIndex = 1;
@@ -75,10 +74,11 @@ namespace aula13_banco
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(29, 16);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(298, 275);
+            this.groupBox1.Size = new System.Drawing.Size(366, 275);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Turmas:";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // groupBox2
             // 
@@ -86,20 +86,12 @@ namespace aula13_banco
             this.groupBox2.Controls.Add(this.txtTurma);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.Turma);
-            this.groupBox2.Location = new System.Drawing.Point(371, 81);
+            this.groupBox2.Location = new System.Drawing.Point(415, 84);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(333, 147);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Matricular Aluno:";
-            // 
-            // mktCpf
-            // 
-            this.mktCpf.Location = new System.Drawing.Point(99, 80);
-            this.mktCpf.Mask = "000-000-000-00";
-            this.mktCpf.Name = "mktCpf";
-            this.mktCpf.Size = new System.Drawing.Size(198, 20);
-            this.mktCpf.TabIndex = 5;
             // 
             // txtTurma
             // 
@@ -126,19 +118,19 @@ namespace aula13_banco
             this.Turma.TabIndex = 0;
             this.Turma.Text = "Turma:";
             // 
-            // textBox1
+            // mktCpf
             // 
-            this.textBox1.Location = new System.Drawing.Point(178, 320);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
+            this.mktCpf.Location = new System.Drawing.Point(99, 80);
+            this.mktCpf.Mask = "000-000-000-00";
+            this.mktCpf.Name = "mktCpf";
+            this.mktCpf.Size = new System.Drawing.Size(198, 20);
+            this.mktCpf.TabIndex = 5;
             // 
             // cadMatricula
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 471);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnMatricular);
@@ -149,7 +141,6 @@ namespace aula13_banco
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -164,6 +155,5 @@ namespace aula13_banco
         private System.Windows.Forms.Label Turma;
         private System.Windows.Forms.DataGridViewTextBoxColumn Turma1;
         private System.Windows.Forms.MaskedTextBox mktCpf;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

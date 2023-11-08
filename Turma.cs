@@ -92,14 +92,62 @@ namespace aula13_banco
 
         }
 
+        public int consulIdTurma(string nomeTur)
+        {
+           int idturma=0;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand buscarid = new MySqlCommand("Select idEstudio_Turma from Estudio_Turma where " +
+                    " NomeTurma= '" + nomeTur +"'", DAO_Conexao.con);
+                MySqlDataReader r = buscarid.ExecuteReader();
+                while (r.Read())
+                {
+                    idturma = int.Parse((r["idEstudio_Turma"].ToString()));
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return idturma;
+        }
+
+        public int consulIdMod1(string nomeTur1)
+        {
+            int idmod = 0;
+            try
+            {
+                DAO_Conexao.con.Close();
+                DAO_Conexao.con.Open();
+                MySqlCommand buscaridm = new MySqlCommand("Select idModalidade from Estudio_Turma where " +
+                    " NomeTurma= '" + nomeTur1 +"'", DAO_Conexao.con);
+                MySqlDataReader r1 = buscaridm.ExecuteReader();
+                while (r1.Read())
+                {
+                    idmod = int.Parse((r1["idModalidade"].ToString()));
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return idmod;
+        }
+
+
+
         public int consulqtd(int idTur)
         {
             int alu = 0;
             try
             {
+                DAO_Conexao.con.Close();
                 DAO_Conexao.con.Open();
                 MySqlCommand buscarqtd = new MySqlCommand("Select alunosmatriculadosTurma from Estudio_Turma where " +
-                    "idEstudio_Turma = "+ idTur, DAO_Conexao.con);
+                    "idEstudio_Turma = '"+ idTur+"'", DAO_Conexao.con);
                 MySqlDataReader r = buscarqtd.ExecuteReader();
                 while(r.Read())
                 {
@@ -150,10 +198,7 @@ namespace aula13_banco
             {
                 Console.WriteLine(ex.ToString());
             }
-            finally
-            {
-                DAO_Conexao.con.Close();
-            }
+          
             return updated;
         }
 
@@ -171,7 +216,6 @@ namespace aula13_banco
             {
                 Console.WriteLine(ex.ToString());
             }
-            
            
 
             return consul;

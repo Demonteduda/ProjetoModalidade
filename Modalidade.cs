@@ -71,8 +71,9 @@ namespace aula13_banco
             int maxalu= 0;
             try
             {
+                DAO_Conexao.con.Close();
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("SELECT qtdAlunos FROM Estudio_modalidade WHERE idEstudio_Modalidade = '" + idmod + "'", DAO_Conexao.con);
+                MySqlCommand consulta = new MySqlCommand("Select qtdAlunos from Estudio_modalidade WHERE idEstudio_Modalidade = '" + idmod + "'", DAO_Conexao.con);
                 MySqlDataReader r = consulta.ExecuteReader();
                 while(r.Read())
                     {
