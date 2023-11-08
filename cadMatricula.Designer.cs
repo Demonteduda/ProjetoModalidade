@@ -34,10 +34,10 @@ namespace aula13_banco
             this.btnMatricular = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.mktCpf = new System.Windows.Forms.MaskedTextBox();
             this.txtTurma = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Turma = new System.Windows.Forms.Label();
-            this.mktCpf = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -93,6 +93,16 @@ namespace aula13_banco
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Matricular Aluno:";
             // 
+            // mktCpf
+            // 
+            this.mktCpf.Location = new System.Drawing.Point(99, 80);
+            this.mktCpf.Mask = "000-000-000-00";
+            this.mktCpf.Name = "mktCpf";
+            this.mktCpf.Size = new System.Drawing.Size(198, 20);
+            this.mktCpf.TabIndex = 5;
+            this.mktCpf.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mktCpf_MaskInputRejected);
+            this.mktCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mktCpf_KeyPress);
+            // 
             // txtTurma
             // 
             this.txtTurma.Location = new System.Drawing.Point(99, 40);
@@ -117,14 +127,6 @@ namespace aula13_banco
             this.Turma.Size = new System.Drawing.Size(40, 13);
             this.Turma.TabIndex = 0;
             this.Turma.Text = "Turma:";
-            // 
-            // mktCpf
-            // 
-            this.mktCpf.Location = new System.Drawing.Point(99, 80);
-            this.mktCpf.Mask = "000-000-000-00";
-            this.mktCpf.Name = "mktCpf";
-            this.mktCpf.Size = new System.Drawing.Size(198, 20);
-            this.mktCpf.TabIndex = 5;
             // 
             // cadMatricula
             // 

@@ -79,9 +79,9 @@ namespace aula13_banco
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(393, 31);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 13);
+            this.label4.Size = new System.Drawing.Size(85, 13);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Nome dos Alunos:";
+            this.label4.Text = "CPF dos Alunos:";
             // 
             // txtDiaSemana
             // 
@@ -146,6 +146,7 @@ namespace aula13_banco
             this.cmbTurma.Name = "cmbTurma";
             this.cmbTurma.Size = new System.Drawing.Size(121, 21);
             this.cmbTurma.TabIndex = 1;
+            this.cmbTurma.SelectedIndexChanged += new System.EventHandler(this.cmbTurma_SelectedIndexChanged);
             // 
             // lblSelecioneTurma
             // 

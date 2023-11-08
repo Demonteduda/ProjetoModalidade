@@ -66,6 +66,11 @@ namespace aula13_banco
 
             }
         }
+         private void mktCpf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+     
+
+        }
 
         private void btnMatricular_Click(object sender, EventArgs e)
         {
@@ -105,6 +110,13 @@ namespace aula13_banco
          }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+      
+
+        private void mktCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }

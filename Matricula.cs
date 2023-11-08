@@ -55,13 +55,16 @@ namespace aula13_banco
             bool cad = false;
             try
             {
+                DAO_Conexao.con.Close();
                 DAO_Conexao.con.Open();
-
+                Console.WriteLine(Cpfalu);
+                Console.WriteLine(IdTurma);
+                Console.WriteLine(NomeTur);
                 MySqlCommand insere = new MySqlCommand("insert into Estudio_Matricula (cpfAlu, idTurma, NomeTurma) values " +
-               "('" + Cpfalu + "','" + idTurma + "','" + nomeTur + "',)", DAO_Conexao.con);
-                insere.ExecuteNonQuery();    
-                MySqlCommand aumenAlunos = new MySqlCommand("Update Estudio_Turma set alunosmatriculadosTurma + 1" +
-                    "where idEstudio_Turma = '" + idTurma+"'", DAO_Conexao.con);
+               "('" + Cpfalu + "'," + idTurma + ",'" + nomeTur + "')", DAO_Conexao.con);
+                insere.ExecuteNonQuery();
+                MySqlCommand aumenAlunos = new MySqlCommand("update Estudio_Turma set alunosmatriculadosTurma = alunosmatriculadosTurma + 1" +
+                    " where idEstudio_Turma = " + idTurma, DAO_Conexao.con);
                 aumenAlunos.ExecuteNonQuery(); 
                 cad = true;
             }
@@ -72,7 +75,7 @@ namespace aula13_banco
             }
             finally
             {
-               // DAO_Conexao.con.Close();
+               DAO_Conexao.con.Close();
             }
             return cad;
 
@@ -101,9 +104,9 @@ namespace aula13_banco
             bool exc = false;
             try
             {
+                DAO_Conexao.con.Close();
                 DAO_Conexao.con.Open();
-                MySqlCommand exclui = new MySqlCommand("delete from Estudio_Matricula" +
-           " where cpfAlu = '" + Cpfalu + "'", DAO_Conexao.con);
+                MySqlCommand exclui = new MySqlCommand("delete from Estudio_Matricula where cpfAlu = '" + Cpfalu + "'", DAO_Conexao.con);
                 exclui.ExecuteNonQuery();
                 exc = true;
             }
@@ -129,7 +132,8 @@ namespace aula13_banco
             {
                 DAO_Conexao.con.Close();
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudio_Turma inner join Estudio_Matricula on Estudio_Turma.idEstudio_Turma where Estudio_Matricula.NomeTurma= '"+nomeTur+"'", DAO_Conexao.con);
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudio_Turma inner join Estudio_Matricula" +
+                    " on Estudio_Turma.idEstudio_Turma where Estudio_Turma.NomeTurma= '"+nomeTur+"'", DAO_Conexao.con);
                 consul = consulta.ExecuteReader();
             }
             catch (Exception ex)

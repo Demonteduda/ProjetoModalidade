@@ -14,7 +14,7 @@ namespace aula13_banco
     public partial class Form8 : Form
     {
         string cpfAlu;
-        string nomeAlu;
+
         public Form8()
         {
             InitializeComponent();
@@ -34,26 +34,41 @@ namespace aula13_banco
 
         private void btnConsultarMatricula_Click(object sender, EventArgs e)
         {
+            List<string> vetCpf = new List<string>();
             Matricula m1 = new Matricula();
             MySqlDataReader re = m1.consultarMatricula(cmbTurma.Text);
             while (re.Read())
             {
-                txtQtdAlu.Text= re["alunosmatriculadosTurma"].ToString();
+                txtQtdAlu.Text = re["alunosmatriculadosTurma"].ToString();
                 txtDiaSemana.Text = re["diasemanaTurma"].ToString();
                 txtHora.Text = re["horaTurma"].ToString();
-                cpfAlu = re["CPFalu"].ToString();
+                vetCpf.Add(re["CPFalu"].ToString());
             }
             DAO_Conexao.con.Close();
-            DAO_Conexao.con.Open();
-            MessageBox.Show(cpfAlu);
-            Aluno a1 = new Aluno();
-            MySqlDataReader r2 = a1.consultarNome(nomeAlu);
-            while(r2.Read())
+
+            for (int i = 0; i < vetCpf.Count; i++)
             {
-                listBox1.Items.Add(r2["nomeAluno"].ToString());
+                Aluno a1 = new Aluno(vetCpf[i]);
+                re = a1.ConsultarNome();
+                if (re.Read())
+                {
+                    listBox1.Items.Add(re["nomeAluno"].ToString());
+                }
+               
+              DAO_Conexao.con.Close();
             }
+         
 
+         
+         
 
+        
+
+        }
+
+        private void cmbTurma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
         }
     }
 }

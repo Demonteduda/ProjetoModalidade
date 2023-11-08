@@ -30,11 +30,11 @@ namespace aula13_banco
         private void InitializeComponent()
         {
             this.Excluir = new System.Windows.Forms.GroupBox();
+            this.mskdCpf = new System.Windows.Forms.MaskedTextBox();
             this.cmbTurma = new System.Windows.Forms.ComboBox();
             this.lblturma = new System.Windows.Forms.Label();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.lblcpfAluno = new System.Windows.Forms.Label();
-            this.mskdCpf = new System.Windows.Forms.MaskedTextBox();
             this.Excluir.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,10 +47,18 @@ namespace aula13_banco
             this.Excluir.Controls.Add(this.lblcpfAluno);
             this.Excluir.Location = new System.Drawing.Point(194, 71);
             this.Excluir.Name = "Excluir";
-            this.Excluir.Size = new System.Drawing.Size(278, 163);
+            this.Excluir.Size = new System.Drawing.Size(268, 164);
             this.Excluir.TabIndex = 0;
             this.Excluir.TabStop = false;
             this.Excluir.Text = "Excluir Aluno da Turma";
+            // 
+            // mskdCpf
+            // 
+            this.mskdCpf.Location = new System.Drawing.Point(75, 82);
+            this.mskdCpf.Mask = "000-000-000-00";
+            this.mskdCpf.Name = "mskdCpf";
+            this.mskdCpf.Size = new System.Drawing.Size(129, 20);
+            this.mskdCpf.TabIndex = 5;
             // 
             // cmbTurma
             // 
@@ -88,14 +96,6 @@ namespace aula13_banco
             this.lblcpfAluno.Size = new System.Drawing.Size(60, 13);
             this.lblcpfAluno.TabIndex = 0;
             this.lblcpfAluno.Text = "CPF Aluno:";
-            // 
-            // mskdCpf
-            // 
-            this.mskdCpf.Location = new System.Drawing.Point(75, 82);
-            this.mskdCpf.Mask = "000-000-000-00";
-            this.mskdCpf.Name = "mskdCpf";
-            this.mskdCpf.Size = new System.Drawing.Size(129, 20);
-            this.mskdCpf.TabIndex = 5;
             // 
             // ExMatricula
             // 
