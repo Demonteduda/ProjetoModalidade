@@ -121,16 +121,15 @@ namespace aula13_banco
 
         //   select* from Estudio_Aluno inner join Estudio_Matricula on Estudio_Aluno.CPFAluno = Estudio_Matricula.cpf_Aluno where Estudio_Matricula.id_Turma= '
 
-
-        public MySqlDataReader consultarMatricula(int idTur)
+        public MySqlDataReader consultarMatricula(string nomeTur)
         {
             MySqlDataReader consul = null;
 
             try
             {
+                DAO_Conexao.con.Close();
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudo_Aluno inner join Estudio_Matricula on Estudo_Aluno.CPFAaluno where Estudio_Matricula.idTurma= '"+idTur+"'", DAO_Conexao.con);
-               
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudio_Turma inner join Estudio_Matricula on Estudio_Turma.idEstudio_Turma where Estudio_Matricula.NomeTurma= '"+nomeTur+"'", DAO_Conexao.con);
                 consul = consulta.ExecuteReader();
             }
             catch (Exception ex)

@@ -208,6 +208,7 @@ namespace aula13_banco
             MySqlDataReader consul = null;
             try
             {
+                DAO_Conexao.con.Close();
                 DAO_Conexao.con.Open();
                 MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudio_Turma", DAO_Conexao.con);
                 consul = consulta.ExecuteReader();

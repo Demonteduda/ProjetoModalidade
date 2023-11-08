@@ -13,6 +13,8 @@ namespace aula13_banco
 {
     public partial class Form8 : Form
     {
+        string cpfAlu;
+        string nomeAlu;
         public Form8()
         {
             InitializeComponent();
@@ -32,19 +34,25 @@ namespace aula13_banco
 
         private void btnConsultarMatricula_Click(object sender, EventArgs e)
         {
-            int idtur = int.Parse(cmbTurma.Text);
-        
-            WindowState = FormWindowState.Maximized;
             Matricula m1 = new Matricula();
-            MySqlDataReader re = m1.consultarMatricula(idtur);
+            MySqlDataReader re = m1.consultarMatricula(cmbTurma.Text);
             while (re.Read())
             {
                 txtQtdAlu.Text= re["alunosmatriculadosTurma"].ToString();
                 txtDiaSemana.Text = re["diasemanaTurma"].ToString();
                 txtHora.Text = re["horaTurma"].ToString();
-                listBox1.Items.Add(m1.NomeTur);
-                listBox1.Items.Add(m1.Cpfalu);
+                cpfAlu = re["CPFalu"].ToString();
             }
+            DAO_Conexao.con.Close();
+            DAO_Conexao.con.Open();
+            MessageBox.Show(cpfAlu);
+            Aluno a1 = new Aluno();
+            MySqlDataReader r2 = a1.consultarNome(nomeAlu);
+            while(r2.Read())
+            {
+                listBox1.Items.Add(r2["nomeAluno"].ToString());
+            }
+
 
         }
     }
