@@ -17,6 +17,7 @@ namespace aula13_banco
 
         public Form8()
         {
+
             InitializeComponent();
 
             Turma con_Tur = new Turma();
@@ -48,11 +49,18 @@ namespace aula13_banco
 
             for (int i = 0; i < vetCpf.Count; i++)
             {
+                
                 Aluno a1 = new Aluno(vetCpf[i]);
                 re = a1.ConsultarNome();
                 if (re.Read())
                 {
-                    listBox1.Items.Add(re["nomeAluno"].ToString());
+                    string tudo = re["nomeAluno"].ToString();
+                    string tudo1 = re["CPFAluno"].ToString();
+                    listBox1.Items.Add(tudo+ "  " + tudo1);
+                }
+                if (re.Read())
+                {
+                    listBox1.Items.Clear();
                 }
                
               DAO_Conexao.con.Close();

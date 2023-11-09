@@ -192,9 +192,10 @@ namespace aula13_banco
             {
                 Console.WriteLine(cpf);
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("select * from Estudo_Aluno" +
-                    " where CPFAluno= '" + cpf + "'", DAO_Conexao.con);
+                MySqlCommand consulta = new MySqlCommand("select * from Estudo_Aluno  where CPFAluno= '" + cpf + "'", DAO_Conexao.con);
+                //MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudio_Turma INNER JOIN Estudo_Aluno on Estudio_Turma.NomeTurma = Estudo_Aluno.nomeAluno WHERE Estudo_Aluno.CPFAluno= '" + cpf + "'", DAO_Conexao.con);
                     resul = consulta.ExecuteReader();
+                
             }
             catch (Exception ex)
             {
